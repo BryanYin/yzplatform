@@ -1,0 +1,26 @@
+<nb-layout>
+
+    <nb-layout-header fixed *ngIf="showNavBar">
+        <do-common-header></do-common-header>
+    </nb-layout-header>
+
+    <nb-sidebar *ngIf="showSideBar" class="menu-sidebar" tag="menu-sidebar" responsive>
+        <!--
+            <nb-sidebar-header>
+              <a href="#" class="btn btn-hero-success main-btn">
+                <i class="ion ion-social-github"></i> <span>Support Us</span>
+              </a>
+            </nb-sidebar-header>
+            -->
+        <ng-content select="nb-menu"></ng-content>
+    </nb-sidebar>
+
+    <nb-layout-column>
+        <ng-content select="router-outlet"></ng-content>
+    </nb-layout-column>
+    <!--
+          <nb-layout-footer fixed>
+            <do-footer></do-footer>
+          </nb-layout-footer>
+          -->
+</nb-layout>

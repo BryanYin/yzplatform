@@ -15,13 +15,19 @@
         "polyfills": "app/polyfills.ts",
         "test": "src/test/javascript/spec/entry.ts",
         "tsconfig": "../../../tsconfig.json",
-        "prefix": "jhi",
-        "mobile": false,
+        "prefix": "yz",
         "styles": [
             "content/scss/vendor.scss",
             "content/scss/global.scss"
         ],
-        "scripts": []
+        "scripts": [
+
+        ],
+        "environmentSource": "app/environments/environment.ts",
+        "environments": {
+          "dev": "app/environments/environment.ts",
+          "prod": "app/environments/environment.prod.ts"
+        }
     }],
     "lint": [{
             "project": "../../../tsconfig.json"
@@ -37,7 +43,6 @@
     },
     "defaults": {
         "styleExt": "scss",
-        "prefixInterfaces": false,
         "component" : {
             "inlineStyle" : true,
             "inlineTemplate": false,

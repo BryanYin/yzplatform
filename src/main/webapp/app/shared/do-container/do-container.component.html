@@ -1,0 +1,12 @@
+<div class="boxModel">
+    <h3 *ngIf="showTitle">{{smallTitle}}</h3>
+    <div id="myCharts" *ngIf="showEcharts">
+        <do-echarts [options]="optionType" [nameMap]="nameMap" [theme]="theme" (chartClick)="onClicked($event)"></do-echarts>
+    </div>
+    <ng-content></ng-content>
+    <div class="dataComing">数据来源：{{dataComing}}</div>
+    <div class="changeNorm_type" *ngIf="showChangeNorm_type" [ngClass]="{true:'buttonShow'}[isShow]">
+        <button *ngFor="let item of tabItems; let i = index" [ngClass]="{true:'buttonClick'}[isClick[i]]" (click)="onBtnClick(i)">{{item}}</button>   
+    </div>
+    <button class="more fa fa-plus" *ngIf="showChangeNorm_type" (click)="onButtonShow()"></button>
+</div>

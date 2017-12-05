@@ -1,0 +1,35 @@
+
+do-echarts {
+    display: block;
+    width: 100%;
+    height: 100%;
+    /deep/ 
+    .echart {
+        height: 100%;
+        width: 100%;
+    }
+}
+.left, .right {
+    width: 50%;
+    height: 90vh;
+    float:left;
+}
+.leftMap {
+    width: 100%;
+    height: 50%;
+}
+.leftDown {
+    width: 100%;
+    height: 50%;
+}
+.rightUp {
+    width: 100%;
+    height: 50%;
+}
+.rightDown {
+    width: 100%;
+    height: 50%;
+}
+.menubarNone {
+    display:none;
+}

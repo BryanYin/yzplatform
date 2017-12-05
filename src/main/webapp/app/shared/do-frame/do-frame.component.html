@@ -1,0 +1,20 @@
+<div class="title">
+    <!-- <button class="leftBtn" style="margin-left:12.5%">发展指数</button>
+    <button class="leftBtn" style="margin-left:1.5%">网络设施</button> -->
+    <p style="margin-left:33%"></p>
+    <button class="rightBtn" style="margin-left:70%" (click)="pushClicked()" [ngClass]="{'btnDisplay': headerController[0]}">制造强国战略推进</button>
+    <button class="rightBtn" style="margin-left:1%" (click)="rushClicked()" [ngClass]="{'btnDisplay':headerController[1]}">工业发展三维总揽</button>
+    <!-- <button class="rightBtn" style="margin-left:1.5%">网络安全</button> -->
+    <button class="exit" (click)="quitClicked()">返回</button>
+    <button class="sumtitle">{{leftTitle}}</button>
+    <p-menubar [model]="menubar" [ngClass]="{'menubarNone': menubarNone}"></p-menubar>
+    <p-menubar [model]="menubarTwo" [ngClass]="{'menubarNone': menubarNoneTwo}"></p-menubar>
+</div>
+<div class="dashboard">
+    <ng-content></ng-content>
+</div>
+<div class="footer">
+    <button style="margin-left:28%;margin-top: 1%;padding: 0.1% 1.1%;" [ngClass]="{'footerClass':footController[0]}" (click)="dataClicked()">工信大数据库</button>
+    <button style="margin-left:4%;margin-top: 1%;padding: 0.1% 1.1%;" (click)="makeClicked()" [ngClass]="{'footerClass':footController[1]}">制造强国全景图</button>
+    <button style="margin-left:4%;margin-top: 1%;padding: 0.1% 1.1%;" (click)="netClicked()" [ngClass]="{'footerClass':footController[2]}">网络强国全景图</button>
+</div>
