@@ -3,7 +3,7 @@
     "promptValues": {
       "packageName": "com.yanzong"
     },
-    "jhipsterVersion": "4.10.2",
+    "jhipsterVersion": "4.11.1",
     "baseName": "cdb_grade",
     "packageName": "com.yanzong",
     "packageFolder": "com/yanzong",
