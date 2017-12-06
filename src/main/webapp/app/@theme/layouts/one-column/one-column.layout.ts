@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 // TODO: move layouts into the framework
 @Component({
-  selector: 'do-one-column-layout',
+  selector: 'yz-one-column-layout',
   styleUrls: ['./one-column.layout.scss'],
   template: `
     <nb-layout>

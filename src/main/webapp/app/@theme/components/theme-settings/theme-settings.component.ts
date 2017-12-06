@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { StateService } from '../../../@core/data/state.service';
+import { ThemeStateService } from './theme-settings.service';
 
 @Component({
-  selector: 'do-theme-settings',
+  selector: 'yz-theme-settings',
   styleUrls: ['./theme-settings.component.scss'],
   template: `
     <h6>LAYOUTS</h6>
@@ -33,7 +33,7 @@ export class ThemeSettingsComponent {
   layouts = [];
   sidebars = [];
 
-  constructor(protected stateService: StateService) {
+  constructor(protected stateService: ThemeStateService) {
     this.stateService.getLayoutStates()
       .subscribe((layouts: any[]) => this.layouts = layouts);
 

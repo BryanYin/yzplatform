@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
-import { environment } from '../../../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 // TODO: move layouts into the framework
 @Component({
-  selector: 'do-common-layout',
+  selector: 'yz-common-layout',
   styleUrls: ['./common.layout.scss'],
   templateUrl: 'common.layout.html',
 })

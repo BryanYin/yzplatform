@@ -53,7 +53,15 @@
       span {
         font-weight: nb-theme(font-weight-normal);
       }
+
+      &:hover {
+        cursor: pointer;
+      }
     }
+  }
+  .imglogo {
+    height: 15%;
+    width: 15%;
   }
 
   .toggle-layout /deep/ a {

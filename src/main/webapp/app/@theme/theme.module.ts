@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { environment } from '../../environments/environment';
+import { environment } from '../environments/environment';
 
 import {
   NbActionsModule,
@@ -24,13 +24,10 @@ import {
   SearchInputComponent,
   ThemeSettingsComponent,
   ThemeSwitcherComponent,
-  TinyMCEComponent,
-  CommonHeaderComponent,
 } from './components';
 import { CapitalizePipe, PluralPipe, RoundPipe, TimingPipe } from './pipes';
 import {
   OneColumnLayoutComponent,
-  SampleLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
   CommonLayoutComponent,
@@ -57,13 +54,10 @@ const NB_MODULES = [
 const COMPONENTS = [
   ThemeSwitcherComponent,
   HeaderComponent,
-  CommonHeaderComponent,
   FooterComponent,
   SearchInputComponent,
   ThemeSettingsComponent,
-  TinyMCEComponent,
   OneColumnLayoutComponent,
-  SampleLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
   CommonLayoutComponent,

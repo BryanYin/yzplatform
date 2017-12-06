@@ -13,7 +13,7 @@ import { Principal } from './principal.service';
  * ```
  */
 @Directive({
-    selector: '[jhiHasAnyAuthority]'
+    selector: '[yzHasAnyAuthority]'
 })
 export class HasAnyAuthorityDirective {
 
