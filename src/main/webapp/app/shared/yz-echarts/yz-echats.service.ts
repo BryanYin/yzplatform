@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class YzEchartsService {
 
-    private _assetsPath = 'contents/map/';
+    private _assetsPath = 'assets/map/';
 
     constructor(private httpClient: HttpClient) { }
 

@@ -3,8 +3,8 @@ import { Renderer, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { CdbGradeTestModule } from '../../../test.module';
 import { LoginModalService, EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from '../../../../../../main/webapp/app/shared';
-import { Register } from '../../../../../../main/webapp/app/account/register/register.service';
-import { RegisterComponent } from '../../../../../../main/webapp/app/account/register/register.component';
+import { Register } from '../../../../../../main/webapp/app/shared/yz-account/register/register.service';
+import { RegisterComponent } from '../../../../../../main/webapp/app/shared/yz-account/register/register.component';
 
 describe('Component Tests', () => {
 

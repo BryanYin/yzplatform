@@ -1,7 +1,7 @@
 <div class="boxModel">
     <h3 *ngIf="showTitle">{{smallTitle}}</h3>
     <div id="myCharts" *ngIf="showEcharts">
-        <do-echarts [options]="optionType" [nameMap]="nameMap" [theme]="theme" (chartClick)="onClicked($event)"></do-echarts>
+        <yz-echarts [options]="optionType" [nameMap]="nameMap" [theme]="theme" (chartClick)="onClicked($event)"></yz-echarts>
     </div>
     <ng-content></ng-content>
     <div class="dataComing">数据来源：{{dataComing}}</div>

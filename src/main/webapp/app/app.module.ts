@@ -6,49 +6,36 @@ import { Ng2Webstorage } from 'ng2-webstorage';
 
 import { CdbGradeSharedModule, UserRouteAccessService } from './shared';
 import { CdbGradeAppRoutingModule} from './app-routing.module';
-import { CdbGradeHomeModule } from './home/home.module';
-import { CdbGradeAdminModule } from './admin/admin.module';
-import { CdbGradeAccountModule } from './account/account.module';
+import { CdbGradeAdminModule } from './shared/yz-admin/admin.module';
+import { CdbGradeAccountModule } from './shared/yz-account/account.module';
 import { CdbGradeEntityModule } from './entities/entity.module';
-import { customHttpProvider } from './blocks/interceptor/http.provider';
-import { PaginationConfig } from './blocks/config/uib-pagination.config';
+import { customHttpProvider } from './shared/interceptor/http.provider';
+import { PaginationConfig } from './shared/config/uib-pagination.config';
+import { AppComponent } from './app.component';
+import { PagesModule } from './pages/pages.module';
 
 // jhipster-needle-angular-add-module-import JHipster will add new module here
-
-import {
-    JhiMainComponent,
-    NavbarComponent,
-    FooterComponent,
-    ProfileService,
-    PageRibbonComponent,
-    ErrorComponent
-} from './layouts';
 
 @NgModule({
     imports: [
         BrowserModule,
         CdbGradeAppRoutingModule,
-        Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-'}),
+        Ng2Webstorage.forRoot({ prefix: 'yz', separator: '-'}),
         CdbGradeSharedModule,
-        CdbGradeHomeModule,
         CdbGradeAdminModule,
         CdbGradeAccountModule,
         CdbGradeEntityModule,
+        PagesModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
-        JhiMainComponent,
-        NavbarComponent,
-        ErrorComponent,
-        PageRibbonComponent,
-        FooterComponent
+        AppComponent,
     ],
     providers: [
-        ProfileService,
         customHttpProvider(),
         PaginationConfig,
         UserRouteAccessService
     ],
-    bootstrap: [ JhiMainComponent ]
+    bootstrap: [ AppComponent ]
 })
 export class CdbGradeAppModule {}

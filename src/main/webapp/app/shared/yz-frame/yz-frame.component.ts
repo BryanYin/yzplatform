@@ -7,8 +7,8 @@ import { MenuItem } from 'primeng/components/common/menuitem';
 
 @Component({
   selector: 'yz-frame',
-  templateUrl: 'do-frame.component.html',
-  styleUrls: ['do-frame.component.scss'],
+  templateUrl: 'yz-frame.component.html',
+  styleUrls: ['yz-frame.component.scss'],
 })
 export class YzFrameComponent implements OnInit {
 

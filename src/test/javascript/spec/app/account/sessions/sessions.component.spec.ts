@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed, inject, tick, fakeAsync } from '@angular/core/testing';
 import { Observable } from 'rxjs/Rx';
 import { CdbGradeTestModule } from '../../../test.module';
-import { Session } from '../../../../../../main/webapp/app/account/sessions/session.model';
-import { SessionsComponent } from '../../../../../../main/webapp/app/account/sessions/sessions.component';
-import { SessionsService } from '../../../../../../main/webapp/app/account/sessions/sessions.service';
+import { Session } from '../../../../../../main/webapp/app/shared/yz-account/sessions/session.model';
+import { SessionsComponent } from '../../../../../../main/webapp/app/shared/yz-account/sessions/sessions.component';
+import { SessionsService } from '../../../../../../main/webapp/app/shared/yz-account/sessions/sessions.service';
 import { MockPrincipal } from '../../../helpers/mock-principal.service';
 import { Principal } from '../../../../../../main/webapp/app/shared/auth/principal.service';
 

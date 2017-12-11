@@ -7,8 +7,9 @@
         "root": "src/main/webapp",
         "outDir": "build/www/app",
         "assets": [
-            "content",
-            "favicon.ico"
+            "assets",
+            "favicon.ico",
+            "favicon.png"
         ],
         "index": "index.html",
         "main": "app/app.main.ts",
@@ -17,16 +18,16 @@
         "tsconfig": "../../../tsconfig.json",
         "prefix": "yz",
         "styles": [
-            "content/scss/vendor.scss",
-            "content/scss/global.scss"
+            "assets/scss/vendor.scss",
+            "assets/scss/global.scss"
         ],
         "scripts": [
 
         ],
-        "environmentSource": "app/environments/environment.ts",
+        "environmentSource": "environments/environment.ts",
         "environments": {
-          "dev": "app/environments/environment.ts",
-          "prod": "app/environments/environment.prod.ts"
+          "dev": "environments/environment.ts",
+          "prod": "environments/environment.prod.ts"
         }
     }],
     "lint": [{

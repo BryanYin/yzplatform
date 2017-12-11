@@ -1,7 +1,7 @@
 ######################
 # Project Specific
 ######################
-/src/main/webapp/content/css/main.css
+/src/main/webapp/assets/css/main.css
 /build/www/**
 /src/test/javascript/coverage/
 /src/test/javascript/PhantomJS*/

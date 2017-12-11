@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { NbMenuService, NbSidebarService } from '@nebular/theme';
-import { environment } from '../../../environments/environment';
-import { ThemeSwitherPos } from '../../../environments/globalTypes';
+import { environment } from '../../../../environments/environment';
+import { ThemeSwitherPos } from '../../../../environments/globalTypes';
 import { NbThemeService } from '@nebular/theme';
 import { NbJSThemeOptions } from '@nebular/theme/services/js-themes/theme.options';
 
@@ -23,9 +23,9 @@ export class HeaderComponent implements OnInit {
 
   private theme: NbJSThemeOptions;
 
-  private showThemeSwither = environment.showThemeSwither;
+  public showThemeSwither = environment.showThemeSwither;
 
-  private showSideBar = environment.showSideBar;
+  public showSideBar = environment.showSideBar;
 
   constructor(private sidebarService: NbSidebarService,
     private menuService: NbMenuService,

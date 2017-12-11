@@ -157,6 +157,10 @@
   dependencies:
     tsickle "^0.21.0"
 
+"@nebular/theme@2.0.0-rc.2":
+  version "2.0.0-rc.2"
+  resolved "http://artifactory.dataocean.com.cn:80/artifactory/api/npm/npm/@nebular/theme/-/theme-2.0.0-rc.2.tgz#745d86c3cc61014841ea00f20fdc99c712d4c141"
+
 "@ng-bootstrap/ng-bootstrap@1.0.0-beta.5":
   version "1.0.0-beta.5"
   resolved "http://artifactory.dataocean.com.cn:80/artifactory/api/npm/npm/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-1.0.0-beta.5.tgz#da2b9066b3701a284cac5a16168a77def947b4ab"
@@ -275,6 +279,12 @@ alphanum-sort@^1.0.1, alphanum-sort@^1.0.2:
 amdefine@>=0.0.4, amdefine@^1.0.0:
   version "1.0.1"
   resolved "http://artifactory.dataocean.com.cn:80/artifactory/api/npm/npm/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
+
+angular-router-loader@^0.8.0:
+  version "0.8.0"
+  resolved "http://artifactory.dataocean.com.cn:80/artifactory/api/npm/npm/angular-router-loader/-/angular-router-loader-0.8.0.tgz#d73acb1c88a135823c7841c997a99375c7f54af5"
+  dependencies:
+    loader-utils "^1.0.2"
 
 angular2-template-loader@0.6.2:
   version "0.6.2"
@@ -2145,6 +2155,12 @@ ecc-jsbn@~0.1.1:
   resolved "http://artifactory.dataocean.com.cn:80/artifactory/api/npm/npm/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
   dependencies:
     jsbn "~0.1.0"
+
+echarts@^3.8.5:
+  version "3.8.5"
+  resolved "http://artifactory.dataocean.com.cn:80/artifactory/api/npm/npm/echarts/-/echarts-3.8.5.tgz#58e4a51d2743c6fb75257b0dc0a9cf9f5378ac0e"
+  dependencies:
+    zrender "3.7.4"
 
 editions@^1.1.1:
   version "1.3.3"
@@ -6327,6 +6343,10 @@ pretty-error@^2.0.2:
     renderkid "^2.0.1"
     utila "~0.4"
 
+primeng@^5.0.2:
+  version "5.0.2"
+  resolved "http://artifactory.dataocean.com.cn:80/artifactory/api/npm/npm/primeng/-/primeng-5.0.2.tgz#05c4a4502efd4c3bc5d506aa01ae8eb30f9764db"
+
 private@^0.1.6, private@~0.1.5:
   version "0.1.8"
   resolved "http://artifactory.dataocean.com.cn:80/artifactory/api/npm/npm/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
@@ -8916,3 +8936,7 @@ zone.js@0.8.16:
 zone.js@^0.8.14:
   version "0.8.18"
   resolved "http://artifactory.dataocean.com.cn:80/artifactory/api/npm/npm/zone.js/-/zone.js-0.8.18.tgz#8cecb3977fcd1b3090562ff4570e2847e752b48d"
+
+zrender@3.7.4:
+  version "3.7.4"
+  resolved "http://artifactory.dataocean.com.cn:80/artifactory/api/npm/npm/zrender/-/zrender-3.7.4.tgz#f847d53948481ef6d42906d1ea9aeec7acbefdf2"

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   template: `
     <nb-layout>
       <nb-layout-header fixed>
-        <do-header></do-header>
+        <yz-header></yz-header>
       </nb-layout-header>
 
       <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive >
@@ -30,7 +30,7 @@ import { Component } from '@angular/core';
       </nb-layout-column>
 
       <nb-layout-footer fixed>
-        <do-footer></do-footer>
+        <yz-footer></yz-footer>
       </nb-layout-footer>
     </nb-layout>
   `,

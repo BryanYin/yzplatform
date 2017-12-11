@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { errorRoute, navbarRoute } from './layouts';
+import { RouterModule, ExtraOptions, Routes } from '@angular/router';
 
-const LAYOUT_ROUTES = [
-    navbarRoute,
-    ...errorRoute
-];
+const routes: Routes = [
+    { path: 'pages', loadChildren: 'pages/pages.module' },
+    { path: '', redirectTo: 'pages', pathMatch: 'full' },
+    { path: '**', redirectTo: 'pages' },
+  ];
+
+const config: ExtraOptions = {
+    useHash: true,
+  };
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(LAYOUT_ROUTES, { useHash: true })
+        RouterModule.forRoot(routes, config)
     ],
     exports: [
         RouterModule
