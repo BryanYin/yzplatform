@@ -18,15 +18,8 @@
         "tsconfig": "../../../tsconfig.json",
         "prefix": "yz",
         "styles": [
-            "../../../node_modules/bootstrap/dist/css/bootstrap.css",
-            "../../../node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
-            "../../../node_modules/ionicons/scss/ionicons.scss",
-            "../../../node_modules/font-awesome/scss/font-awesome.scss",
-            "../../../node_modules/nebular-icons/scss/nebular-icons.scss",
-            "../../../node_modules/socicon/css/socicon.css",
-            "app/@theme/styles/styles.scss",
-            "../../../node_modules/primeng/resources/themes/omega/theme.css",
-            "../../../node_modules/primeng/resources/primeng.min.css"
+            "assets/scss/vendor.scss",
+            "assets/scss/global.scss"
         ],
         "scripts": [
 

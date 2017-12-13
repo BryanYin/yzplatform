@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from '../../environments/environment';
+import { RouterModule } from '@angular/router';
+import { CdbGradeSharedModule } from '../shared/shared.module';
 
 import {
   NbActionsModule,
@@ -24,6 +26,9 @@ import {
   SearchInputComponent,
   ThemeSettingsComponent,
   ThemeSwitcherComponent,
+  ErrorComponent,
+  NavbarComponent,
+  PageRibbonComponent,
 } from './components';
 import { CapitalizePipe, PluralPipe, RoundPipe, TimingPipe } from './pipes';
 import {
@@ -35,7 +40,7 @@ import {
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 
-const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
+const BASE_MODULES = [CommonModule, RouterModule, FormsModule, ReactiveFormsModule];
 
 const NB_MODULES = [
   NbCardModule,
@@ -51,6 +56,10 @@ const NB_MODULES = [
   NgbModule,
 ];
 
+const PROJECT_MODULES = [
+  CdbGradeSharedModule,
+];
+
 const COMPONENTS = [
   ThemeSwitcherComponent,
   HeaderComponent,
@@ -61,6 +70,9 @@ const COMPONENTS = [
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
   CommonLayoutComponent,
+  ErrorComponent,
+  NavbarComponent,
+  PageRibbonComponent,
 ];
 
 const PIPES = [
@@ -82,7 +94,7 @@ const NB_THEME_PROVIDERS = [
 ];
 
 @NgModule({
-  imports: [...BASE_MODULES, ...NB_MODULES],
+  imports: [...BASE_MODULES, ...NB_MODULES, ...PROJECT_MODULES],
   exports: [...BASE_MODULES, ...NB_MODULES, ...COMPONENTS, ...PIPES],
   declarations: [...COMPONENTS, ...PIPES],
 })

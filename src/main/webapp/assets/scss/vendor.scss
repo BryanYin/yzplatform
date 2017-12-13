@@ -1,14 +1,26 @@
 /* after changing this file run 'yarn run webpack:build' */
 $fa-font-path: '~font-awesome/fonts';
+$roboto-font-path: '~roboto-fontface/fonts';
+$ionicons-font-path: "~ionicons/fonts";
+$nebular-icons-font-path: "~nebular-icons/fonts";
+$socicon-font-path: "~socicon/font";
 
 /***************************
 put Sass variables here:
 eg $input-color: red;
 ****************************/
 // Override Boostrap variables
-@import "bootstrap-variables";
+@import 'bootstrap-variables';
 // Import Bootstrap source files from node_modules
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/font-awesome/scss/font-awesome';
+
+@import '~roboto-fontface/css/roboto/sass/roboto-fontface';
+@import '~ionicons/scss/ionicons';
+@import '~nebular-icons/scss/nebular-icons';
+@import '~socicon/css/socicon.css';
+@import 'src/main/webapp/app/@theme/styles/styles';
+@import '~primeng/resources/themes/south-street/theme.css';
+@import '~primeng/resources/primeng.min.css';
 
 /* jhipster-needle-scss-add-vendor JHipster will add new css style */

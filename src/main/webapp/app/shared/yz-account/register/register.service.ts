@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { environment } from '../../../../environments/environment';
+import { SERVER_API_URL } from '../../../app.constants';
 
 @Injectable()
 export class Register {
@@ -9,6 +9,6 @@ export class Register {
     constructor(private http: Http) {}
 
     save(account: any): Observable<any> {
-        return this.http.post(environment.apiurl + 'api/register', account);
+        return this.http.post(SERVER_API_URL + 'api/register', account);
     }
 }

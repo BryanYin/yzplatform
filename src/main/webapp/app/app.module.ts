@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Ng2Webstorage } from 'ng2-webstorage';
+import { Ng2Webstorage } from 'ngx-webstorage';
 
 import { CdbGradeSharedModule, UserRouteAccessService } from './shared';
 import { CdbGradeAppRoutingModule} from './app-routing.module';

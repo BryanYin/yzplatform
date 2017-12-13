@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpParams } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
+import { SERVER_API_URL } from '../../app.constants';
 
 /**
  * Api is a generic REST Api handler. Set your API url first.
@@ -10,8 +10,8 @@ export class HttpApi {
     private url: string = 'https://no_base_URL_configured';
 
     constructor(public http: HttpClient) {
-        if (environment.apiurl) {
-            this.url = environment.apiurl;
+        if (SERVER_API_URL && SERVER_API_URL !== '') {
+            this.url = SERVER_API_URL;
         }
     }
 

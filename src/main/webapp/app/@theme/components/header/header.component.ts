@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = { name: 'Eva Moor', picture: 'assets/images/logo-jhipster.png'};
+    this.user = { name: 'Eva Moor', picture: '../../assets/images/logo-jhipster.png'};
     this.themeService.getJsTheme()
       .subscribe((theme: NbJSThemeOptions) => this.theme = theme);
   }
