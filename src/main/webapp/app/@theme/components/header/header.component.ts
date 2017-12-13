@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
   @Input() position = 'normal';
 
-  title = 'Maintitle';
+  title = '综合授信大数据平台';
 
   user: any;
 
