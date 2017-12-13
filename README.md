@@ -66,7 +66,7 @@ Edit [src/main/webapp/app/vendor.ts](src/main/webapp/app/vendor.ts) file:
 import 'leaflet/dist/leaflet.js';
 ~~~
 
-Edit [src/main/webapp/content/css/vendor.css](src/main/webapp/content/css/vendor.css) file:
+Edit [src/main/webapp/assets/css/vendor.css](src/main/webapp/assets/css/vendor.css) file:
 ~~~
 @import '~leaflet/dist/leaflet.css';
 ~~~

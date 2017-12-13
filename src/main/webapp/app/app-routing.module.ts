@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, ExtraOptions, Routes } from '@angular/router';
 
 const routes: Routes = [
-    { path: 'pages', loadChildren: 'pages/pages.module' },
+    { path: 'pages', loadChildren: './pages/pages.module#PagesModule' },
     { path: '', redirectTo: 'pages', pathMatch: 'full' },
     { path: '**', redirectTo: 'pages' },
   ];

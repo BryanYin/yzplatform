@@ -21,7 +21,7 @@
             180
         ],
         "member-access": false,
-        "member-ordering":true,
+        "member-ordering": true,
         "no-arg": true,
         "no-bitwise": true,
         "no-console": [
