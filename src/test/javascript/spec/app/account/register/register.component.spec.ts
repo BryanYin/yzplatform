@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed, async, inject, tick, fakeAsync } from '@angular/core/testing';
-import { Renderer, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
+
 import { CdbGradeTestModule } from '../../../test.module';
-import { LoginModalService, EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from '../../../../../../main/webapp/app/shared';
+import { EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from '../../../../../../main/webapp/app/shared';
 import { Register } from '../../../../../../main/webapp/app/account/register/register.service';
 import { RegisterComponent } from '../../../../../../main/webapp/app/account/register/register.component';
 
@@ -17,21 +17,10 @@ describe('Component Tests', () => {
                 imports: [CdbGradeTestModule],
                 declarations: [RegisterComponent],
                 providers: [
-                    Register,
-                    {
-                        provide: LoginModalService,
-                        useValue: null
-                    },
-                    {
-                        provide: Renderer,
-                        useValue: null
-                    },
-                    {
-                        provide: ElementRef,
-                        useValue: null
-                    }
+                    Register
                 ]
-            }).overrideTemplate(RegisterComponent, '')
+            })
+            .overrideTemplate(RegisterComponent, '')
             .compileComponents();
         }));
 
