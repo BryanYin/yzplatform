@@ -7,15 +7,17 @@ import { FirstPageComponent } from './firstpage/firstpage.component';
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
-  children: [{
-    path: 'firstpage',
-    component: FirstPageComponent,
-  }, {
+  children: [
+  //   {
+  //   path: 'firstpage',
+  //   component: FirstPageComponent,
+  // },
+  {
     path: 'example',
     loadChildren: './example/example.module#ExampleModule',
   }, {
     path: '',
-    redirectTo: 'firstpage',
+    redirectTo: 'example',
     pathMatch: 'full',
   }],
 }];

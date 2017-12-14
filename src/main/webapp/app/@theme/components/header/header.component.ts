@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
   @Input() position = 'normal';
 
-  title = '综合授信大数据平台';
+  title = '小工具';
 
   user: any;
 
@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = { name: 'Eva Moor', picture: '../../assets/images/logo-jhipster.png'};
+    this.user = { name: '系统管理员', picture: '../../assets/images/logo-jhipster.png'};
     this.themeService.getJsTheme()
       .subscribe((theme: NbJSThemeOptions) => this.theme = theme);
   }
