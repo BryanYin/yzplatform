@@ -1,0 +1,68 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "javadoc": "公司名称",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "scdw",
+            "javadoc": "市场地位",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "ggbl",
+            "javadoc": "杠杆比率",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "llys",
+            "javadoc": "利率因素",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "xjldx",
+            "javadoc": "现金流动性",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "csnl",
+            "javadoc": "创收能力",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "ylnl",
+            "javadoc": "盈利能力",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "khpj",
+            "javadoc": "客户评级",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "country",
+            "javadoc": "所属国家",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "eventTime",
+            "javadoc": "填报时间",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dbTime",
+            "javadoc": "db time",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20171215070727",
+    "entityTableName": "cdb_grade",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "skipClient": true
+}

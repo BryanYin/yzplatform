@@ -3,19 +3,14 @@
     <p-headerColumnGroup>
         <p-row>
             <p-column header="名称" rowspan="2"></p-column>
-            <p-column *ngFor="let row1 of titleRow1" [header]="row1.name" (click)="mouseOver(row1.index)" [sortable]="true"></p-column>
+            <p-column *ngFor="let row1 of titleRow1" [header]="row1.name" (click)="mouseOver(row1.index)" ></p-column>
         </p-row>
         <p-row>
             <p-column *ngFor="let row2 of titleRow2" [header]="row2.name" (mouseenter)="mouseOver(row2.index)"></p-column>
         </p-row>
     </p-headerColumnGroup>
-    <p-column field="name" [sortable]="true"></p-column>
-    <p-column field="ggbl" [sortable]="true"></p-column>
-    <p-column field="llys" [sortable]="true"></p-column>
-    <p-column field="xjldx" [sortable]="true"></p-column>
-    <p-column field="csnl" [sortable]="true"></p-column>
-    <p-column field="ylnl" [sortable]="true"></p-column>
-    <p-column field="khpj" [sortable]="true"></p-column>
+    <p-column field="name" ></p-column>
+    <p-column *ngFor="let row2 of titleRow2" [field]="row2.field" [sortable]="true"></p-column>
     <p-footer>
         <div class="ui-helper-clearfix" style="width:100%">
             <button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="新增"></button>

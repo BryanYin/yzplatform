@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2Webstorage } from 'ngx-webstorage';
 
 import { CdbGradeSharedModule, UserRouteAccessService } from './shared';
-import { CdbGradeAppRoutingModule} from './app-routing.module';
+import { CdbGradeAppRoutingModule } from './app-routing.module';
 import { CdbGradeAdminModule } from './shared/yz-admin/admin.module';
 import { CdbGradeAccountModule } from './shared/yz-account/account.module';
 import { CdbGradeEntityModule } from './entities/entity.module';
@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ThemeModule } from './@theme/theme.module';
+import { YzServiceModule } from './shared/yz-service/yz-service.module';
 
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 
@@ -24,7 +25,7 @@ import { ThemeModule } from './@theme/theme.module';
     imports: [
         BrowserModule,
         CdbGradeAppRoutingModule,
-        Ng2Webstorage.forRoot({ prefix: 'yz', separator: '-'}),
+        Ng2Webstorage.forRoot({ prefix: 'yz', separator: '-' }),
         CdbGradeSharedModule,
         CdbGradeAdminModule,
         CdbGradeAccountModule,
@@ -33,6 +34,8 @@ import { ThemeModule } from './@theme/theme.module';
         BrowserAnimationsModule,
         NgbModule.forRoot(),
         ThemeModule.forRoot(),
+
+        YzServiceModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
@@ -44,6 +47,6 @@ import { ThemeModule } from './@theme/theme.module';
         PaginationConfig,
         UserRouteAccessService
     ],
-    bootstrap: [ AppComponent ]
+    bootstrap: [AppComponent]
 })
-export class CdbGradeAppModule {}
+export class CdbGradeAppModule { }

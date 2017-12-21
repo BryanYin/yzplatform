@@ -25,18 +25,20 @@ export class Page1Component implements OnInit {
         { name: '客户评级', index: 6 },
     ];
     public titleRow2 = [
-        { name: '净借款/EBITDA', index: 1 },
-        { name: '国际市场筹资成本', index: 2 },
-        { name: 'EBITDA MARGIN', index: 3 },
-        { name: '销售收入', index: 4 },
-        { name: '净利润/收入', index: 5 },
-        { name: '内部评级', index: 6 },
+        { field: 'ggbl', name: '净借款/EBITDA', index: 1 },
+        { field: 'llys', name: '国际市场筹资成本', index: 2 },
+        { field: 'xjldx', name: 'EBITDA MARGIN', index: 3 },
+        { field: 'csnl', name: '销售收入', index: 4 },
+        { field: 'ylnl', name: '净利润/收入', index: 5 },
+        { field: 'khpj', name: '内部评级', index: 6 },
     ];
 
     constructor(private service: Page1Service) { }
 
     ngOnInit() {
-        this.gradeRecords = this.service.getMockData();
+        this.service.getInitData().subscribe(
+            (data) => this.gradeRecords = data
+        );
     }
 
     showDialogToAdd() {

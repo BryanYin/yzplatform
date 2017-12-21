@@ -1,0 +1,27 @@
+entity Grade (CDB_GRADE) {
+	/** 公司名称 */
+	name String,
+    /** 市场地位*/
+    scdw Integer,
+    /** 杠杆比率 */
+	ggbl Integer,
+    /** 利率因素 */
+	llys Integer,
+    /** 现金流动性 */
+	xjldx Integer,
+    /** 创收能力 */
+	csnl Integer,
+    /** 盈利能力 */
+	ylnl Integer,
+    /** 客户评级 */
+	khpj Integer,
+    /** 所属国家 */
+    country String,
+    /** 填报时间 */
+    eventTime String,
+    /** db time */
+    dbTime ZonedDateTime
+}
+
+skipClient all
+service all with serviceClass

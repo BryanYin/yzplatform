@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import { HttpApi } from '../../../shared/yz-service/http-api.service';
+import { Observable } from 'rxjs';
 import { Grade } from '../../../shared/interfaces';
+import { environment } from '../../../../environments/environment';
 
 @Injectable()
 export class Page1Service {
-    constructor(private httpClient: HttpClient) { }
+    constructor(private http: HttpApi) { }
 
-    public getMockData() {
-        return MOCK_DATA;
+    public getInitData(): Observable<any> {
+        if (environment.useMock) {
+            return Observable.of(MOCK_DATA);
+        } else {
+            return this.http.get('api/grades');
+        }
     }
 }
 
