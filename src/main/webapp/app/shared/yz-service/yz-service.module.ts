@@ -12,4 +12,4 @@ const services = [
     declarations: [],
     providers: [...services],
 })
-export class DoServiceModule { }
+export class YzServiceModule { }

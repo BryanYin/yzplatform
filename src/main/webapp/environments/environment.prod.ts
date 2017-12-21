@@ -7,9 +7,9 @@ import { ThemeSwitherPos, RegistedThemes } from './globalTypes';
 
 export const environment = {
   production: true,
-  apiurl: '',
   showSideBar: true,
   showNavBar: true,
+  useMock: false,
   showThemeSwither: ThemeSwitherPos.navbar,
   defaultTheme: RegistedThemes.default,
 };

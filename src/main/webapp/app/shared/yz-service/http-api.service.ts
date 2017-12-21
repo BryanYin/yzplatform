@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpRequest, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpParams, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { SERVER_API_URL } from '../../app.constants';
 
 /**
@@ -19,7 +20,18 @@ export class HttpApi {
         this.url = url;
     }
 
-    get(endpoint: string, params?: any, options?: any) {
+    getByUrl<T>(url: string) {
+        return this.http.get<T>(url);
+    }
+
+    get<T>(endpoint: string, params?: any, options?: {
+        headers?: HttpHeaders;
+        observe?: 'body';
+        params?: HttpParams;
+        reportProgress?: boolean;
+        responseType?: 'json';
+        withCredentials?: boolean;
+    }) {
         if (params) {
             if (!options) {
                 options = { 'params': params };
@@ -27,7 +39,7 @@ export class HttpApi {
                 options['params'] = params;
             }
         }
-        return this.http.get(this.url + '/' + endpoint, options);
+        return this.http.get<T>(this.url + '/' + endpoint, options);
     }
 
     post(endpoint: string, body: any, options?: any) {

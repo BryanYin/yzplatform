@@ -12,9 +12,9 @@ import { ThemeSwitherPos, RegistedThemes } from './globalTypes';
 
 export const environment = {
   production: false,
-  apiurl: '',
   showSideBar: true,
   showNavBar: true,
+  useMock: false,
   showThemeSwither: ThemeSwitherPos.profile,
   defaultTheme: RegistedThemes.default,
 };
