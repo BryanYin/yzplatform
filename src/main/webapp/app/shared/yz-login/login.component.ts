@@ -7,15 +7,20 @@ import { LoginService } from './login.service';
 import { StateStorageService } from '../auth/state-storage.service';
 
 @Component({
-    selector: 'yz-login-modal',
-    templateUrl: './login.component.html'
+    selector: 'yz-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss']
 })
-export class JhiLoginModalComponent implements AfterViewInit {
+export class YzLoginComponent {
     authenticationError: boolean;
-    password: string;
+    pwd: string;
+    email: string;
     rememberMe: boolean;
     username: string;
     credentials: any;
+    showMessages: any;
+    messages: string[];
+    errors: string[];
 
     constructor(
         private eventManager: JhiEventManager,
@@ -27,11 +32,12 @@ export class JhiLoginModalComponent implements AfterViewInit {
         public activeModal: NgbActiveModal
     ) {
         this.credentials = {};
+        this.showMessages = {};
     }
 
-    ngAfterViewInit() {
-        this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#username'), 'focus', []);
-    }
+    // ngAfterViewInit() {
+    //     this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#userName'), 'focus', []);
+    // }
 
     cancel() {
         this.credentials = {
@@ -46,7 +52,7 @@ export class JhiLoginModalComponent implements AfterViewInit {
     login() {
         this.loginService.login({
             username: this.username,
-            password: this.password,
+            password: this.pwd,
             rememberMe: this.rememberMe
         }).then(() => {
             this.authenticationError = false;

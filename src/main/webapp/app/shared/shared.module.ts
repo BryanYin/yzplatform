@@ -9,9 +9,6 @@ import {
     AccountService,
     UserService,
     StateStorageService,
-    LoginService,
-    LoginModalService,
-    JhiLoginModalComponent,
     Principal,
     HasAnyAuthorityDirective,
 } from './';
@@ -19,15 +16,12 @@ import {
 @NgModule({
     imports: [
         CdbGradeSharedLibsModule,
-        CdbGradeSharedCommonModule
+        CdbGradeSharedCommonModule,
     ],
     declarations: [
-        JhiLoginModalComponent,
         HasAnyAuthorityDirective
     ],
     providers: [
-        LoginService,
-        LoginModalService,
         AccountService,
         StateStorageService,
         Principal,
@@ -36,10 +30,9 @@ import {
         UserService,
         DatePipe
     ],
-    entryComponents: [JhiLoginModalComponent],
+    entryComponents: [],
     exports: [
         CdbGradeSharedCommonModule,
-        JhiLoginModalComponent,
         HasAnyAuthorityDirective,
         DatePipe
     ],

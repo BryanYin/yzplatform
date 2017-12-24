@@ -1,0 +1,100 @@
+@mixin nb-auth-block-theme() {
+    .yz-auth-block {
+        .form-text a {
+            color: nb-theme(color-fg);
+        }
+        .accept-group {
+            nb-checkbox .custom-control-description {
+                color: nb-theme(color-fg);
+            }
+            a {
+                color: nb-theme(accept-group-link-color);
+            }
+        }
+    }
+}
+
+:host /deep/ {
+    $auth-layout-padding: 2.5rem;
+  
+    nb-layout .layout .layout-container .content .columns nb-layout-column {
+      padding: $auth-layout-padding;
+    }
+  
+    nb-card {
+      height: calc(100vh - 2 * #{$auth-layout-padding});
+    }
+  
+    nb-card {
+      margin: 0;
+    }
+    .flex-centered {
+        margin: auto;
+    }
+    nb-card-body {
+      display: flex;
+    }
+  
+    // TODO rewrite when develop responsive
+    @media (max-width: 550px) {
+      /deep/ nb-layout .layout .layout-container .content .columns nb-layout-column {
+        padding: 0;
+      }
+  
+      nb-card {
+        border-radius: 0;
+        height: 100vh;
+      }
+    }
+  
+  }
+
+ :host /deep/ {
+    // TODO rewrite when develop responsive
+    @media (max-width: 550px) {
+        .accept-group {
+            font-size: 12px;
+            padding: 0;
+        }
+    }
+    form {
+        width: 100%;
+    }
+    .alert {
+        text-align: center;
+    }
+    .title {
+        margin-bottom: 0.75rem;
+        text-align: center;
+    }
+    .sub-title {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    .checkbox {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-weight: normal;
+    }
+    .form-group.accept-group {
+        display: flex;
+        justify-content: space-between;
+        margin: 2rem 0;
+        .forgot-password {
+            line-height: 2;
+        }
+    }
+    .links {
+        text-align: center;
+        margin-top: 1.75rem;
+        .socials {
+            margin: 1.5rem 0 2.5rem;
+        }
+        .socials a {
+            font-size: 2rem;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+    }
+}

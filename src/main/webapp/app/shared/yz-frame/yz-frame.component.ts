@@ -1,4 +1,4 @@
-import { RouteCacheService } from './../yz-service/route-cache.service';
+import { YzRouteService } from './../yz-service/yz-route.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { YzFrameService } from '../yz-service/yz-frame.service';
@@ -24,7 +24,7 @@ export class YzFrameComponent implements OnInit {
     private service: YzFrameService,
     private activeRoute: ActivatedRoute,
     private zone: NgZone,
-    private routeCacheService: RouteCacheService) {
+    private routeCacheService: YzRouteService) {
     this.headerController.fill(false);
     this.footController.fill(false);
   }

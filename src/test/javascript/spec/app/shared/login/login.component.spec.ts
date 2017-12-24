@@ -4,7 +4,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { LoginService } from '../../../../../../main/webapp/app/shared/login/login.service';
-import { JhiLoginModalComponent } from '../../../../../../main/webapp/app/shared/login/login.component';
+import { YzLoginComponent } from '../../../../../../main/webapp/app/shared/login/login.component';
 import { StateStorageService } from '../../../../../../main/webapp/app/shared/auth/state-storage.service';
 import { CdbGradeTestModule } from '../../../test.module';
 import { MockLoginService } from '../../../helpers/mock-login.service';
@@ -14,8 +14,8 @@ describe('Component Tests', () => {
 
     describe('LoginComponent', () => {
 
-        let comp: JhiLoginModalComponent;
-        let fixture: ComponentFixture<JhiLoginModalComponent>;
+        let comp: YzLoginComponent;
+        let fixture: ComponentFixture<YzLoginComponent>;
         let mockLoginService: any;
         let mockStateStorageService: any;
         let mockRouter: any;
@@ -25,7 +25,7 @@ describe('Component Tests', () => {
         beforeEach(async(() => {
             TestBed.configureTestingModule({
                 imports: [CdbGradeTestModule],
-                declarations: [JhiLoginModalComponent],
+                declarations: [YzLoginComponent],
                 providers : [
                     {
                         provide: LoginService,
@@ -37,12 +37,12 @@ describe('Component Tests', () => {
                     }
                 ]
             })
-            .overrideTemplate(JhiLoginModalComponent, '')
+            .overrideTemplate(YzLoginComponent, '')
             .compileComponents();
         }));
 
         beforeEach(() => {
-            fixture = TestBed.createComponent(JhiLoginModalComponent);
+            fixture = TestBed.createComponent(YzLoginComponent);
             comp = fixture.componentInstance;
             mockLoginService = fixture.debugElement.injector.get(LoginService);
             mockStateStorageService = fixture.debugElement.injector.get(StateStorageService);
@@ -61,7 +61,7 @@ describe('Component Tests', () => {
                         rememberMe: true
                     }
                     comp.username = 'admin';
-                    comp.password = 'admin';
+                    comp.pwd = 'admin';
                     comp.rememberMe = true;
                     comp.credentials = credentials;
                     mockLoginService.setResponse({});
@@ -93,7 +93,7 @@ describe('Component Tests', () => {
                         rememberMe: true
                     }
                     comp.username = 'admin';
-                    comp.password = 'admin';
+                    comp.pwd = 'admin';
                     comp.rememberMe = true;
                     comp.credentials = credentials;
                     mockLoginService.setResponse({});
