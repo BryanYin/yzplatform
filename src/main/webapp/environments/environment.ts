@@ -15,6 +15,7 @@ export const environment = {
   showSideBar: true,
   showNavBar: true,
   useMock: false,
+  showLogin: true,
   showThemeSwither: ThemeSwitherPos.profile,
-  defaultTheme: RegistedThemes.default,
+  defaultTheme: RegistedThemes.cosmic,
 };

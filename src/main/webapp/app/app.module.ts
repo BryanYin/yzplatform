@@ -15,7 +15,7 @@ import { customHttpProvider } from './shared/interceptor/http.provider';
 import { PaginationConfig } from './shared/config/uib-pagination.config';
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ThemeModule } from './@theme/theme.module';
 
 // jhipster-needle-angular-add-module-import JHipster will add new module here
@@ -42,6 +42,7 @@ import { ThemeModule } from './@theme/theme.module';
         { provide: APP_BASE_HREF, useValue: '/' },
         customHttpProvider(),
         PaginationConfig,
+        NgbActiveModal,
         UserRouteAccessService
     ],
     bootstrap: [ AppComponent ]
