@@ -5,6 +5,17 @@ import { environment } from '../../../../environments/environment';
 import { ThemeSwitherPos } from '../../../../environments/globalTypes';
 import { NbThemeService } from '@nebular/theme';
 import { NbJSThemeOptions } from '@nebular/theme/services/js-themes/theme.options';
+import { Principal, AuthServerProvider } from '../../../shared';
+import { Router } from '@angular/router';
+
+class UserMenu {
+  static switchTheme = { title: '更换主题', index: 1 };
+  static profile = { title: '我的资料', index: 2 };
+  static logOut = { title: '退出', index: 3 };
+  public static getUserMenu(showSwitcher: boolean) {
+    return showSwitcher ? [this.switchTheme, this.profile, this.logOut] : [this.profile, this.logOut];
+  }
+}
 
 @Component({
   selector: 'yz-header',
@@ -19,7 +30,7 @@ export class HeaderComponent implements OnInit {
 
   user: any;
 
-  userMenu = [{ title: 'Profile', index: 2 }, { title: 'Log out', index: 3 }];
+  userMenu: any;
 
   private theme: NbJSThemeOptions;
 
@@ -29,16 +40,15 @@ export class HeaderComponent implements OnInit {
 
   constructor(private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
-    private themeService: NbThemeService) {
-
-    if (this.showThemeSwither === ThemeSwitherPos.profile) {
-      this.userMenu = [{ title: 'switch theme', index: 1 }, ...this.userMenu];
-    }
-
+    private themeService: NbThemeService,
+    private principal: Principal,
+    private authServerProvider: AuthServerProvider,
+    private router: Router) {
+    this.userMenu = UserMenu.getUserMenu(this.showThemeSwither === ThemeSwitherPos.profile);
   }
 
   ngOnInit() {
-    this.user = { name: 'Eva Moor', picture: '../../assets/images/logo-jhipster.png'};
+    this.user = { name: 'Eva Moor', picture: '../../assets/images/logo-jhipster.png' };
     this.themeService.getJsTheme()
       .subscribe((theme: NbJSThemeOptions) => this.theme = theme);
   }
@@ -62,16 +72,33 @@ export class HeaderComponent implements OnInit {
   }
 
   menuClicked(item) {
-    if (item.index === 1) {
-      if (this.theme.name === 'cosmic') {
-        this.themeService.changeTheme('default');
-      } else {
-        this.themeService.changeTheme('cosmic');
-      }
+
+    switch (item.index) {
+      case 1:
+        if (this.theme.name === 'cosmic') {
+          this.themeService.changeTheme('default');
+        } else {
+          this.themeService.changeTheme('cosmic');
+        }
+        break;
+      case 2:
+
+        break;
+      case 3:
+        this.logout();
+        break;
+      default:
+        break;
     }
   }
 
   onNotificationClicked() {
 
+  }
+
+  logout() {
+    this.authServerProvider.logout().subscribe();
+    this.principal.authenticate(null);
+    this.router.navigate(['']);
   }
 }

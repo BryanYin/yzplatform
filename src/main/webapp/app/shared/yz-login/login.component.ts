@@ -1,10 +1,11 @@
-import { Component, AfterViewInit, Renderer, ElementRef } from '@angular/core';
+import { Component, OnInit, Renderer, ElementRef } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { LoginService } from './login.service';
 import { StateStorageService } from '../auth/state-storage.service';
+import { PAGES_PATH } from '../../app-routing.module';
 
 @Component({
     selector: 'yz-login',
@@ -29,15 +30,11 @@ export class YzLoginComponent {
         private elementRef: ElementRef,
         private renderer: Renderer,
         private router: Router,
-        public activeModal: NgbActiveModal
+        // public activeModal: NgbActiveModal
     ) {
         this.credentials = {};
         this.showMessages = {};
     }
-
-    // ngAfterViewInit() {
-    //     this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#userName'), 'focus', []);
-    // }
 
     cancel() {
         this.credentials = {
@@ -46,7 +43,7 @@ export class YzLoginComponent {
             rememberMe: true
         };
         this.authenticationError = false;
-        this.activeModal.dismiss('cancel');
+        // this.activeModal.dismiss('cancel');
     }
 
     login() {
@@ -56,7 +53,7 @@ export class YzLoginComponent {
             rememberMe: this.rememberMe
         }).then(() => {
             this.authenticationError = false;
-            this.activeModal.dismiss('login success');
+            // this.activeModal.dismiss('login success');
             if (this.router.url === '/register' || (/^\/activate\//.test(this.router.url)) ||
                 (/^\/reset\//.test(this.router.url))) {
                 this.router.navigate(['']);
@@ -74,18 +71,19 @@ export class YzLoginComponent {
                 this.stateStorageService.storeUrl(null);
                 this.router.navigate([redirect]);
             }
+            this.router.navigate(['/pages']);
         }).catch(() => {
             this.authenticationError = true;
         });
     }
 
     register() {
-        this.activeModal.dismiss('to state register');
-        this.router.navigate(['/register']);
+        // this.activeModal.dismiss('to state register');
+        // this.router.navigate(['/register']);
     }
 
     requestResetPassword() {
-        this.activeModal.dismiss('to state requestReset');
-        this.router.navigate(['/reset', 'request']);
+        // this.activeModal.dismiss('to state requestReset');
+        // this.router.navigate(['/reset', 'request']);
     }
 }

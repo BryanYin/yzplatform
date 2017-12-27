@@ -1,8 +1,9 @@
 import { Component, OnInit, AfterViewInit, Renderer, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 import { Register } from './register.service';
-import { LoginModalService, EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from '../../../shared';
+import { /*LoginModalService,*/ EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from '../../../shared';
 
 @Component({
     selector: 'yz-register',
@@ -20,9 +21,10 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     modalRef: NgbModalRef;
 
     constructor(
-        private loginModalService: LoginModalService,
+        // private loginModalService: LoginModalService,
         private registerService: Register,
         private elementRef: ElementRef,
+        private router: Router,
         private renderer: Renderer
     ) {
     }
@@ -52,7 +54,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     }
 
     openLogin() {
-        this.modalRef = this.loginModalService.open();
+        this.router.navigate(['/login']);
+        // this.modalRef = this.loginModalService.open();
     }
 
     private processError(response) {

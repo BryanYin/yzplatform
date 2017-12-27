@@ -111,7 +111,7 @@
             
                   <div class="form-group accept-group col-sm-12">
                     <nb-checkbox name="rememberMe" [(ngModel)]="rememberMe">记住我</nb-checkbox>
-                    <a class="forgot-password" routerLink="../request-password">忘记密码?</a>
+                    <!-- <a class="forgot-password" (click)="requestResetPassword()">忘记密码?</a> -->
                   </div>
             
                   <button [disabled]="submitted || !form.valid" class="btn btn-block btn-hero-success"
@@ -120,11 +120,11 @@
                   </button>
                 </form>
             
-                <div class="links">
+                <!-- <div class="links">
                   <small class="form-text">
-                    没账号? <a routerLink="../register"><strong>注册</strong></a>
+                    没账号? <a (click)="register()"><strong>注册</strong></a>
                   </small>
-                </div>
+                </div> -->
             </div>
           </div>
         </nb-card-body>

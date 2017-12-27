@@ -1,7 +1,9 @@
 import './vendor.ts';
 
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2Webstorage } from 'ngx-webstorage';
@@ -11,7 +13,6 @@ import { CdbGradeAppRoutingModule} from './app-routing.module';
 import { CdbGradeAdminModule } from './shared/yz-admin/admin.module';
 import { CdbGradeAccountModule } from './shared/yz-account/account.module';
 import { CdbGradeEntityModule } from './entities/entity.module';
-import { customHttpProvider } from './shared/interceptor/http.provider';
 import { PaginationConfig } from './shared/config/uib-pagination.config';
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
@@ -23,7 +24,9 @@ import { ThemeModule } from './@theme/theme.module';
 @NgModule({
     imports: [
         BrowserModule,
+        HttpClientModule,
         CdbGradeAppRoutingModule,
+        FormsModule,
         Ng2Webstorage.forRoot({ prefix: 'yz', separator: '-'}),
         CdbGradeSharedModule,
         CdbGradeAdminModule,
@@ -40,7 +43,6 @@ import { ThemeModule } from './@theme/theme.module';
     ],
     providers: [
         { provide: APP_BASE_HREF, useValue: '/' },
-        customHttpProvider(),
         PaginationConfig,
         NgbActiveModal,
         UserRouteAccessService
