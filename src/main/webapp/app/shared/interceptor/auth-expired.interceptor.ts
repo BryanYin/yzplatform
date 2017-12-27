@@ -1,9 +1,10 @@
 import { JhiHttpInterceptor } from 'ng-jhipster';
 import { Injector } from '@angular/core';
 import { RequestOptionsArgs, Response } from '@angular/http';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AuthServerProvider } from '../../shared/auth/auth-session.service';
-import { LoginModalService } from '../../shared/login/login-modal.service';
+// import { LoginModalService } from '../../shared/yz-login/login-modal.service';
 import { StateStorageService } from '../../shared/auth/state-storage.service';
 
 export class AuthExpiredInterceptor extends JhiHttpInterceptor {
@@ -11,7 +12,9 @@ export class AuthExpiredInterceptor extends JhiHttpInterceptor {
     constructor(
         private injector: Injector,
         private stateStorageService: StateStorageService,
-        private loginServiceModal: LoginModalService) {
+        private router: Router
+        // private loginServiceModal: LoginModalService
+    ) {
         super();
     }
 
@@ -34,7 +37,8 @@ export class AuthExpiredInterceptor extends JhiHttpInterceptor {
                 }
                 const authServer: AuthServerProvider = this.injector.get(AuthServerProvider);
                 authServer.logout();
-                this.loginServiceModal.open();
+                // this.loginServiceModal.open();
+                this.router.navigate(['/login']);
             }
             return Observable.throw(error);
         });

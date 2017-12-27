@@ -15,9 +15,8 @@ export class AuthServerProvider {
             '&j_password=' + encodeURIComponent(credentials.password) +
             '&remember-me=' + credentials.rememberMe + '&submit=Login';
         const header = new HttpHeaders ({
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded',
         });
-
         return this.http.post(SERVER_API_URL + 'api/authentication', data, { headers: header });
     }
 

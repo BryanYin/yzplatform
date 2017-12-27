@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright DataOcean. All Rights Reserved.
+ * Copyright YanzongTech. All Rights Reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 // The file contents for the current environment will overwrite these during build.
@@ -17,5 +17,5 @@ export const environment = {
   useMock: false,
   showLogin: true,
   showThemeSwither: ThemeSwitherPos.profile,
-  defaultTheme: RegistedThemes.cosmic,
+  defaultTheme: RegistedThemes.default,
 };

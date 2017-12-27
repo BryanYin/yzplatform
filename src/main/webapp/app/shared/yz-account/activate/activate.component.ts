@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ActivateService } from './activate.service';
-import { LoginModalService } from '../../../shared';
+// import { LoginModalService } from '../../../shared';
 
 @Component({
     selector: 'yz-activate',
@@ -16,7 +16,8 @@ export class ActivateComponent implements OnInit {
 
     constructor(
         private activateService: ActivateService,
-        private loginModalService: LoginModalService,
+        // private loginModalService: LoginModalService,
+        private router: Router,
         private route: ActivatedRoute
     ) {
     }
@@ -34,6 +35,7 @@ export class ActivateComponent implements OnInit {
     }
 
     login() {
-        this.modalRef = this.loginModalService.open();
+        this.router.navigate(['/login']);
+        // this.modalRef = this.loginModalService.open();
     }
 }

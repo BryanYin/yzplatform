@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, URLSearchParams } from '@angular/http';
+import { Http, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { SERVER_API_URL } from '../../../app.constants';
 
@@ -14,6 +14,6 @@ export class ActivateService {
 
         return this.http.get(SERVER_API_URL + 'api/activate', {
             search: params
-        }).map((res: Response) => res);
+        });
     }
 }
