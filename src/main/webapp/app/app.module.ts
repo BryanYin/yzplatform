@@ -27,12 +27,8 @@ import { YzServiceModule } from './shared/yz-service/yz-service.module';
         BrowserModule,
         HttpClientModule,
         CdbGradeAppRoutingModule,
-<<<<<<< HEAD
-        Ng2Webstorage.forRoot({ prefix: 'yz', separator: '-' }),
-=======
         FormsModule,
         Ng2Webstorage.forRoot({ prefix: 'yz', separator: '-'}),
->>>>>>> master
         CdbGradeSharedModule,
         CdbGradeAdminModule,
         CdbGradeAccountModule,
