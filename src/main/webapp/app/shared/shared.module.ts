@@ -4,13 +4,6 @@ import { DatePipe } from '@angular/common';
 import {
     CdbGradeSharedLibsModule,
     CdbGradeSharedCommonModule,
-    CSRFService,
-    AuthServerProvider,
-    AccountService,
-    UserService,
-    StateStorageService,
-    Principal,
-    HasAnyAuthorityDirective,
 } from './';
 
 @NgModule({
@@ -19,21 +12,13 @@ import {
         CdbGradeSharedCommonModule,
     ],
     declarations: [
-        HasAnyAuthorityDirective
     ],
     providers: [
-        AccountService,
-        StateStorageService,
-        Principal,
-        CSRFService,
-        AuthServerProvider,
-        UserService,
         DatePipe
     ],
     entryComponents: [],
     exports: [
         CdbGradeSharedCommonModule,
-        HasAnyAuthorityDirective,
         DatePipe
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

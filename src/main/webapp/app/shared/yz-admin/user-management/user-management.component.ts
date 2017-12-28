@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
-import { ITEMS_PER_PAGE, Principal, User, UserService, ResponseWrapper } from '../../../shared';
+import { ITEMS_PER_PAGE, User, UserService, ResponseWrapper } from '../../../shared';
+import { Principal } from '../../../shared/yz-service/auth';
 
 @Component({
     selector: 'yz-user-mgmt',

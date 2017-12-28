@@ -39,6 +39,7 @@ import {
 } from './layouts';
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
+import { YzServiceModule } from '../shared/yz-service/yz-service.module';
 
 const BASE_MODULES = [CommonModule, RouterModule, FormsModule, ReactiveFormsModule];
 
@@ -58,6 +59,7 @@ const NB_MODULES = [
 
 const PROJECT_MODULES = [
   CdbGradeSharedModule,
+  YzServiceModule
 ];
 
 const COMPONENTS = [

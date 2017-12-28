@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Account, Principal } from './shared';
+import { Account } from './shared';
+import { Principal } from './shared/yz-service/auth';
 import { JhiEventManager } from 'ng-jhipster';
 
 @Component({

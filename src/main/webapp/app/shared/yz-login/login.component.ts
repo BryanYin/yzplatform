@@ -3,8 +3,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { LoginService } from './login.service';
-import { StateStorageService } from '../auth/state-storage.service';
+import { LoginService } from '../yz-service/auth/login.service';
+import { StateStorageService } from '../yz-service/auth/state-storage.service';
 import { PAGES_PATH } from '../../app-routing.module';
 
 @Component({

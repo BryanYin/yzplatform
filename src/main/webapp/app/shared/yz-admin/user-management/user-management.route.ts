@@ -8,7 +8,7 @@ import { UserMgmtDetailComponent } from './user-management-detail.component';
 import { UserDialogComponent } from './user-management-dialog.component';
 import { UserDeleteDialogComponent } from './user-management-delete-dialog.component';
 
-import { Principal } from '../../../shared';
+import { Principal } from '../../../shared/yz-service/auth';
 
 @Injectable()
 export class UserResolve implements CanActivate {

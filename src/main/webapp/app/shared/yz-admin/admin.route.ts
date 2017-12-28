@@ -11,7 +11,7 @@ import {
     userDialogRoute
 } from './';
 
-import { UserRouteAccessService } from '../../shared';
+import { UserRouteAccessService } from '../../shared/yz-service/auth';
 
 const ADMIN_ROUTES = [
     auditsRoute,

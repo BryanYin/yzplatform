@@ -8,7 +8,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2Webstorage } from 'ngx-webstorage';
 
-import { CdbGradeSharedModule, UserRouteAccessService } from './shared';
+import { CdbGradeSharedModule } from './shared';
+import { UserRouteAccessService } from './shared/yz-service/auth';
 import { CdbGradeAppRoutingModule} from './app-routing.module';
 import { CdbGradeAdminModule } from './shared/yz-admin/admin.module';
 import { CdbGradeAccountModule } from './shared/yz-account/account.module';
@@ -18,6 +19,7 @@ import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ThemeModule } from './@theme/theme.module';
+import { YzLoginModule } from './shared/yz-login/login.module';
 
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 
@@ -32,6 +34,7 @@ import { ThemeModule } from './@theme/theme.module';
         CdbGradeAdminModule,
         CdbGradeAccountModule,
         CdbGradeEntityModule,
+        YzLoginModule,
         PagesModule,
         BrowserAnimationsModule,
         NgbModule.forRoot(),

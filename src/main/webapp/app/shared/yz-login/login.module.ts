@@ -3,8 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { ThemeModule } from '../../@theme/theme.module';
 import { YzLoginRoutingModule } from './login.routing';
 import { NbLayoutModule, NbCardModule, NbCheckboxModule } from '@nebular/theme';
-import { LoginService } from './login.service';
-import { LoginModalService } from './login-modal.service';
 
 import { YzLoginComponent } from './login.component';
 
@@ -19,6 +17,6 @@ import { YzLoginComponent } from './login.component';
     ],
     exports: [],
     declarations: [YzLoginComponent],
-    providers: [LoginService, LoginModalService],
+    providers: [],
 })
 export class YzLoginModule { }

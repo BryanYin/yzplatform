@@ -4,8 +4,8 @@ import { Observable } from 'rxjs/Rx';
 import { CdbGradeTestModule } from '../../../test.module';
 import { PasswordComponent } from '../../../../../../main/webapp/app/shared/yz-account/password/password.component';
 import { PasswordService } from '../../../../../../main/webapp/app/shared/yz-account/password/password.service';
-import { Principal } from '../../../../../../main/webapp/app/shared/auth/principal.service';
-import { AccountService } from '../../../../../../main/webapp/app/shared/auth/account.service';
+import { Principal } from '../../../../../../main/webapp/app/shared/yz-service/auth/principal.service';
+import { AccountService } from '../../../../../../main/webapp/app/shared/yz-service/auth/account.service';
 
 describe('Component Tests', () => {
 

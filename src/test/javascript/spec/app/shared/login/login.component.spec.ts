@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { LoginService } from '../../../../../../main/webapp/app/shared/yz-login/login.service';
+import { LoginService } from '../../../../../../main/webapp/app/shared/yz-service/auth/login.service';
 import { YzLoginComponent } from '../../../../../../main/webapp/app/shared/yz-login/login.component';
-import { StateStorageService } from '../../../../../../main/webapp/app/shared/auth/state-storage.service';
+import { StateStorageService } from '../../../../../../main/webapp/app/shared/yz-service/auth/state-storage.service';
 import { CdbGradeTestModule } from '../../../test.module';
 import { MockLoginService } from '../../../helpers/mock-login.service';
 import { MockStateStorageService } from '../../../helpers/mock-state-storage.service';

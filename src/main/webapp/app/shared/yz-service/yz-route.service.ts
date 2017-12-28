@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Route } from '@angular/router';
+import { Route, Routes } from '@angular/router';
 import { environment } from '../../../environments/environment';
-import { UserRouteAccessService } from '../../shared';
+import { UserRouteAccessService } from '../../shared/yz-service/auth';
 
 @Injectable()
 export class YzRouteService {
@@ -18,7 +18,15 @@ export class YzRouteService {
 
 }
 
-export function showLoginRoutes(path: Route): Route {
+export function showLoginRoutes(path: Route | Routes): Routes {
+    if (path instanceof Array) {
+        return path.map((p) => setCanActive(p));
+    }else {
+        return [setCanActive(path)];
+    }
+}
+
+function setCanActive(path: Route): Route {
     if (environment.showLogin) {
         if (path.canActivate) {
             path.canActivate = [...path.canActivate, UserRouteAccessService];

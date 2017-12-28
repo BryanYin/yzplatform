@@ -5,7 +5,7 @@ import { environment } from '../../../../environments/environment';
 import { ThemeSwitherPos } from '../../../../environments/globalTypes';
 import { NbThemeService } from '@nebular/theme';
 import { NbJSThemeOptions } from '@nebular/theme/services/js-themes/theme.options';
-import { Principal, AuthServerProvider } from '../../../shared';
+import { Principal, AuthServerProvider } from '../../../shared/yz-service/auth';
 import { Router } from '@angular/router';
 
 class UserMenu {
