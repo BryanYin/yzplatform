@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
-import { YzLoginComponent } from './login.component';
+import { YzLoginComponent } from '../../yz-login/login.component';
 
 @Injectable()
 export class LoginModalService {

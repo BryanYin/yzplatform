@@ -3,9 +3,9 @@ import { Injector } from '@angular/core';
 import { RequestOptionsArgs, Response } from '@angular/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { AuthServerProvider } from '../../shared/auth/auth-session.service';
+import { AuthServerProvider } from '../../shared/yz-service/auth/auth-session.service';
 // import { LoginModalService } from '../../shared/yz-login/login-modal.service';
-import { StateStorageService } from '../../shared/auth/state-storage.service';
+import { StateStorageService } from '../../shared/yz-service/auth/state-storage.service';
 
 export class AuthExpiredInterceptor extends JhiHttpInterceptor {
 

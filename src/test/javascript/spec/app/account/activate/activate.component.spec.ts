@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 
 import { CdbGradeTestModule } from '../../../test.module';
 import { MockActivatedRoute } from '../../../helpers/mock-route.service';
-import { LoginModalService } from '../../../../../../main/webapp/app/shared';
+import { LoginModalService } from '../../../../../../main/webapp/app/shared/yz-service/auth';
 import { ActivateService } from '../../../../../../main/webapp/app/shared/yz-account/activate/activate.service';
 import { ActivateComponent } from '../../../../../../main/webapp/app/shared/yz-account/activate/activate.component';
 

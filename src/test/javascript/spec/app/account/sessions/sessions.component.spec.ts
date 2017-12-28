@@ -6,7 +6,7 @@ import { Session } from '../../../../../../main/webapp/app/shared/yz-account/ses
 import { SessionsComponent } from '../../../../../../main/webapp/app/shared/yz-account/sessions/sessions.component';
 import { SessionsService } from '../../../../../../main/webapp/app/shared/yz-account/sessions/sessions.service';
 import { MockPrincipal } from '../../../helpers/mock-principal.service';
-import { Principal } from '../../../../../../main/webapp/app/shared/auth/principal.service';
+import { Principal } from '../../../../../../main/webapp/app/shared/yz-service/auth/principal.service';
 
 describe('Component Tests', () => {
 

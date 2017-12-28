@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Rx';
 import { Headers } from '@angular/http';
 
 import { CdbGradeTestModule } from '../../../test.module';
-import { Principal } from '../../../../../../main/webapp/app/shared';
+import { Principal } from '../../../../../../main/webapp/app/shared/yz-service/auth';
 import { UserMgmtComponent } from '../../../../../../main/webapp/app/shared/yz-admin/user-management/user-management.component';
 import { UserService, User } from '../../../../../../main/webapp/app/shared';
 

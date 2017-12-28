@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
 import { FirstPageComponent } from './firstpage/firstpage.component';
 
-const routes: Routes = [{
-  path: '',
+export const PageRoutes: Routes = [{
+  path: 'pages',
   component: PagesComponent,
   children: [
   //   {
@@ -19,11 +19,11 @@ const routes: Routes = [{
     path: '',
     redirectTo: 'example',
     pathMatch: 'full',
-  }],
+  }], data: { authorities: ['ROLE_USER'] }
 }];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(PageRoutes)],
   exports: [RouterModule],
 })
 export class PagesRoutingModule {

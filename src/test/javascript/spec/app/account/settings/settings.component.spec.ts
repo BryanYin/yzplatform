@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Observable } from 'rxjs/Rx';
 
 import { CdbGradeTestModule } from '../../../test.module';
-import { Principal, AccountService } from '../../../../../../main/webapp/app/shared';
+import { Principal, AccountService } from '../../../../../../main/webapp/app/shared/yz-service/auth';
 import { SettingsComponent } from '../../../../../../main/webapp/app/shared/yz-account/settings/settings.component';
 
 describe('Component Tests', () => {

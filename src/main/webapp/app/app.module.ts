@@ -8,8 +8,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2Webstorage } from 'ngx-webstorage';
 
+<<<<<<< HEAD
 import { CdbGradeSharedModule, UserRouteAccessService } from './shared';
 import { CdbGradeAppRoutingModule } from './app-routing.module';
+=======
+import { CdbGradeSharedModule } from './shared';
+import { UserRouteAccessService } from './shared/yz-service/auth';
+import { CdbGradeAppRoutingModule} from './app-routing.module';
+>>>>>>> master
 import { CdbGradeAdminModule } from './shared/yz-admin/admin.module';
 import { CdbGradeAccountModule } from './shared/yz-account/account.module';
 import { CdbGradeEntityModule } from './entities/entity.module';
@@ -18,7 +24,11 @@ import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ThemeModule } from './@theme/theme.module';
+<<<<<<< HEAD
 import { YzServiceModule } from './shared/yz-service/yz-service.module';
+=======
+import { YzLoginModule } from './shared/yz-login/login.module';
+>>>>>>> master
 
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 
@@ -33,6 +43,7 @@ import { YzServiceModule } from './shared/yz-service/yz-service.module';
         CdbGradeAdminModule,
         CdbGradeAccountModule,
         CdbGradeEntityModule,
+        YzLoginModule,
         PagesModule,
         BrowserAnimationsModule,
         NgbModule.forRoot(),
