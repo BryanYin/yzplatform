@@ -32,7 +32,8 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/cdb_grade?useUnicode=true&characterEncoding=utf8&useSSL=false
+#        url: jdbc:mysql://localhost:3306/cdb_grade?useUnicode=true&characterEncoding=utf8&useSSL=false
+        url: jdbc:postgresql://localhost:5432/cdb_grade
         username: cdb_dev
         password: cdb_dev
         hikari:

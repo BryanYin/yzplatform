@@ -9,6 +9,7 @@
     <property name="now" value="now()" dbms="h2"/>
 
     <property name="now" value="now()" dbms="mysql"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
     <property name="autoIncrement" value="true"/>
 
     <property name="floatType" value="float4" dbms="postgresql, h2"/>
@@ -69,7 +70,11 @@
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="cdb_grade" columnName="db_time" columnDataType="datetime"/>
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> master
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>
