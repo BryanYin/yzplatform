@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, ExtraOptions, Routes } from '@angular/router';
-import { showLoginRoutes } from './shared/yz-service/yz-route.service';
 import { environment } from '../environments/environment';
 import { errorRoute } from './@theme/components/error/error.route';
 import { YzLoginComponent } from './shared/yz-login/login.component';
@@ -10,7 +9,7 @@ const defaultPath = environment.showLogin ? 'login' : 'pages';
 
 const routes: Routes = [
     { path: 'login', component: YzLoginComponent },
-    ...showLoginRoutes(PageRoutes),
+    { path: 'pages', loadChildren: './pages/pages.module#PagesModule' },
     { path: '', redirectTo: defaultPath, pathMatch: 'full' },
     { path: '**', redirectTo: defaultPath },
     ...errorRoute

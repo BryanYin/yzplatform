@@ -13,6 +13,10 @@ import { MockActivatedRoute, MockRouter } from './helpers/mock-route.service';
 import { MockActiveModal } from './helpers/mock-active-modal.service';
 import { MockEventManager } from './helpers/mock-event-manager.service';
 
+export function httpFactory(backendInstance: MockBackend, defaultOptions: BaseRequestOptions){
+    return new Http(backendInstance, defaultOptions);
+}
+
 @NgModule({
     providers: [
         DatePipe,
@@ -67,9 +71,7 @@ import { MockEventManager } from './helpers/mock-event-manager.service';
         },
         {
             provide: Http,
-            useFactory: (backendInstance: MockBackend, defaultOptions: BaseRequestOptions) => {
-                return new Http(backendInstance, defaultOptions);
-            },
+            useFactory: httpFactory,
             deps: [MockBackend, BaseRequestOptions]
         }
     ]

@@ -3,21 +3,26 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { FirstPageComponent } from './firstpage/firstpage.component';
+import { UserRouteAccessService } from '../shared/yz-service/auth';
+import { environment } from '../../environments/environment';
 
 export const PageRoutes: Routes = [{
-  path: 'pages',
+  path: '',
+  canActivate: [UserRouteAccessService],
   component: PagesComponent,
-  children: [{
-    path: 'firstpage',
-    component: FirstPageComponent,
-  }, {
-    path: 'example',
-    loadChildren: './example/example.module#ExampleModule',
-  }, {
-    path: '',
-    redirectTo: 'firstpage',
-    pathMatch: 'full',
-  }], data: { authorities: ['ROLE_USER'] }
+  children: [
+    //   {
+    //   path: 'firstpage',
+    //   component: FirstPageComponent,
+    // },
+    {
+      path: 'example',
+      loadChildren: './example/example.module#ExampleModule',
+    }, {
+      path: '',
+      redirectTo: 'example',
+      pathMatch: 'full',
+    }], data: environment.showLogin ? { authorities: ['ROLE_USER'] } : null
 }];
 
 @NgModule({

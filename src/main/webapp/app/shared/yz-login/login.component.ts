@@ -22,6 +22,7 @@ export class YzLoginComponent {
     showMessages: any;
     messages: string[];
     errors: string[];
+    submitted: boolean = false;
 
     constructor(
         private eventManager: JhiEventManager,
@@ -47,12 +48,14 @@ export class YzLoginComponent {
     }
 
     login() {
+        this.submitted = true;
         this.loginService.login({
             username: this.username,
             password: this.pwd,
             rememberMe: this.rememberMe
         }).then(() => {
             this.authenticationError = false;
+            this.submitted = false;
             // this.activeModal.dismiss('login success');
             if (this.router.url === '/register' || (/^\/activate\//.test(this.router.url)) ||
                 (/^\/reset\//.test(this.router.url))) {
