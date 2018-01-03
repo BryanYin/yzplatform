@@ -70,11 +70,6 @@
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="cdb_grade" columnName="db_time" columnDataType="datetime"/>
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> master
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>
