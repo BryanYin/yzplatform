@@ -8438,7 +8438,7 @@ webpack-visualizer-plugin@0.1.11:
     react "^0.14.0"
     react-dom "^0.14.0"
 
-webpack@~3.10.0:
+webpack@^3.10.0, webpack@~3.10.0:
   version "3.10.0"
   resolved "http://artifactory.dataocean.com.cn:80/artifactory/api/npm/npm/webpack/-/webpack-3.10.0.tgz#5291b875078cf2abf42bdd23afe3f8f96c17d725"
   dependencies:

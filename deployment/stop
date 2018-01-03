@@ -1,0 +1,16 @@
+#!/bin/sh
+
+project=$1
+
+if [ ! -z "$project" ]; then
+  pids=`ps -ef |grep java |grep $project|awk '{print $2}'`
+else
+  pids=`ps -ef |grep java |grep war|awk '{print $2}'`
+fi
+
+for each in $pids
+do
+  kill -9 $each
+done
+
+exit 0

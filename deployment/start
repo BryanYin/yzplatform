@@ -1,0 +1,70 @@
+#!/bin/sh
+
+if [ $# -gt 2 ]; then
+  echo "Usage: $0 <project name> [no-liquibase]"
+  echo "e.g.: $0 cdb"
+  exit 1
+fi
+
+project=$1
+noliquibase=0
+
+if [ $# -eq 2 ]; then
+  noliquibase=$2
+fi
+
+if [ ! -f env/$project.sh ]; then
+  echo "Can't find env/$project.sh, please add one for $project"
+  exit 1
+fi
+
+. env/base.sh
+. env/$project.sh
+
+if [ -z "$DBTYPE" ]; then
+  echo "env DBTYPE is not set"
+  exit 1
+fi
+
+if [ -z "$DBUSER" ]; then
+  echo "env DBUSER is not set"
+  exit 1
+fi
+
+if [ -z "$DBPASS" ]; then
+  echo "env DBPASS is not set"
+  exit 1
+fi
+
+if [ -z "$YZ_PORT" ]; then
+  echo "env YZ_PORT is not set"
+  exit 1
+fi
+
+profile=prod
+
+if [ $noliquibase -eq 1 ]; then
+  profile=prod,no-liquibase
+fi
+
+url=""
+
+if [ $DBTYPE == "oracle" ]; then
+  url=jdbc:oracle:thin:@$ORACLE_SERVER_IP:$ORACLE_PORT:$ORACLE_SID
+elif [ $DBTYPE == "mysql" ]; then
+  url=jdbc:mysql://$MYSQL_SERVER_IP:$MYSQL_PORT/$MYSQL_SID?useUnicode=true&characterEncoding=utf8&useSSL=false
+elif [ $DBTYPE == "postgresql" ]; then
+  url=jdbc:postgresql://$PGSQL_SERVER_IP:$PGSQL_PORT/$PGSQL_SID
+else
+  echo "env DBTYPE set to wrong value" $DBTYPE
+  exit 1
+fi
+
+war=`ls -rt build/*.war |tail -1`
+
+if [ -z "$war" ]; then
+  echo "Can't locate any war in build"
+  exit 1
+fi 
+
+java -jar $war --server.port=$YZ_PORT --spring.datasource.url=$url --spring.datasource.username=$DBUSER --spring.datasource.password=$DBPASS --spring.profiles.active=$profile --application.project=$project &
