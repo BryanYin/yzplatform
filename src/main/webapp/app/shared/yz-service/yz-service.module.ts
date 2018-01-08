@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
-import { HttpApi } from './http-api.service';
+import { HttpService } from './http-api.service';
+import { EntityApiService } from './entity-api.service';
 import { YzRouteService } from './yz-route.service';
 import {
     AccountService,
@@ -26,7 +27,8 @@ const AUTH_SERVICES = [
 ];
 
 const services = [
-    HttpApi,
+    HttpService,
+    EntityApiService,
     YzRouteService,
     ...AUTH_SERVICES,
 ];

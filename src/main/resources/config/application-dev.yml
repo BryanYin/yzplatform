@@ -18,6 +18,7 @@ logging:
         ROOT: DEBUG
         com.yanzong: DEBUG
         io.github.jhipster: DEBUG
+    file: yz.log
 
 spring:
     profiles:
