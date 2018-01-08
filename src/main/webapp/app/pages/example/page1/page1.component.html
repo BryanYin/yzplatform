@@ -1,15 +1,15 @@
-<p-dataTable [value]="gradeRecords" selectionMode="single" [(selection)]="selectedRow" (onRowSelect)="onRowSelect($event)" [paginator]="true"
-    rows="15" [responsive]="true">
+<p-dataTable [value]="gradeRecords" selectionMode="single" [(selection)]="selectedRow" (onRowSelect)="onRowSelect($event)"
+    [paginator]="true" rows="15" [responsive]="true">
     <p-headerColumnGroup>
         <p-row>
             <p-column header="名称" rowspan="2"></p-column>
-            <p-column *ngFor="let row1 of titleRow1" [header]="row1.name" (click)="mouseOver(row1.index)" ></p-column>
+            <p-column *ngFor="let row1 of titleRow1" [header]="row1.name" (click)="mouseOver(row1.index)"></p-column>
         </p-row>
         <p-row>
             <p-column *ngFor="let row2 of titleRow2" [header]="row2.name" (mouseenter)="mouseOver(row2.index)"></p-column>
         </p-row>
     </p-headerColumnGroup>
-    <p-column field="name" ></p-column>
+    <p-column field="name"></p-column>
     <p-column *ngFor="let row2 of titleRow2" [field]="row2.field" [sortable]="true"></p-column>
     <p-footer>
         <div class="ui-helper-clearfix" style="width:100%">
@@ -18,9 +18,8 @@
     </p-footer>
 </p-dataTable>
 
-
 <p-dialog header="企业明细" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
-    <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="dialogGrade">
+    <div class="ui-grid ui-grid-responsive ui-fluid" style="width:400px" *ngIf="dialogGrade">
         <div class="ui-grid-row">
             <div class="ui-grid-col-4">
                 <label for="name">企业名称</label>
@@ -29,54 +28,16 @@
                 <input pInputText id="name" [(ngModel)]="dialogGrade.name" />
             </div>
         </div>
-        <div class="ui-grid-row">
-            <div class="ui-grid-col-4">
-                <label for="ggbl">杠杆比率</label>
+        <ng-container *ngFor="let item of titleRow2">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4">
+                    <label [for]="item.field">{{titleRow1[item.index].name}}</label>
+                </div>
+                <div class="ui-grid-col-8">
+                    <input pInputText [id]="item.field" [(ngModel)]="dialogGrade[item.field]" />
+                </div>
             </div>
-            <div class="ui-grid-col-8">
-                <input pInputText id="ggbl" [(ngModel)]="dialogGrade.ggbl" />
-            </div>
-        </div>
-        <div class="ui-grid-row">
-            <div class="ui-grid-col-4">
-                <label for="llys">利率因素</label>
-            </div>
-            <div class="ui-grid-col-8">
-                <input pInputText id="llys" [(ngModel)]="dialogGrade.llys" />
-            </div>
-        </div>
-        <div class="ui-grid-row">
-            <div class="ui-grid-col-4">
-                <label for="xjldx">现金流动性</label>
-            </div>
-            <div class="ui-grid-col-8">
-                <input pInputText id="xjldx" [(ngModel)]="dialogGrade.xjldx" />
-            </div>
-        </div>
-        <div class="ui-grid-row">
-            <div class="ui-grid-col-4">
-                <label for="csnl">创收能力</label>
-            </div>
-            <div class="ui-grid-col-8">
-                <input pInputText id="csnl" [(ngModel)]="dialogGrade.csnl" />
-            </div>
-        </div>
-        <div class="ui-grid-row">
-            <div class="ui-grid-col-4">
-                <label for="ylnl">盈利能力</label>
-            </div>
-            <div class="ui-grid-col-8">
-                <input pInputText id="ylnl" [(ngModel)]="dialogGrade.ylnl" />
-            </div>
-        </div>
-        <div class="ui-grid-row">
-            <div class="ui-grid-col-4">
-                <label for="khpj">客户评级</label>
-            </div>
-            <div class="ui-grid-col-8">
-                <input pInputText id="khpj" [(ngModel)]="dialogGrade.khpj" />
-            </div>
-        </div>
+        </ng-container>
     </div>
     <p-footer>
         <div class="ui-dialog-buttonpane ui-helper-clearfix">

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpApi } from '../../../shared/yz-service/http-api.service';
 import { Observable } from 'rxjs';
 import { Grade } from '../../../shared/interfaces';
 import { environment } from '../../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class Page1Service {
-    constructor(private http: HttpApi) { }
+    constructor(private http: HttpClient) { }
 
     public getInitData(): Observable<any> {
         if (environment.useMock) {
@@ -18,5 +18,5 @@ export class Page1Service {
 }
 
 const MOCK_DATA = [
-    new Grade('企业A', 1, 1, 1, 1, 1, 1),
+    new Grade('企业A', 1, 1, 1, 1, 1, 1, 1, 'china', '20170809 12:30:43'),
 ];
