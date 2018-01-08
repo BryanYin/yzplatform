@@ -7,7 +7,7 @@ import { SERVER_API_URL } from '../../app.constants';
  * Api is a generic REST Api handler. Set your API url first.
  */
 @Injectable()
-export class HttpApi {
+export class HttpService {
     private url: string = 'https://no_base_URL_configured';
 
     constructor(public http: HttpClient) {

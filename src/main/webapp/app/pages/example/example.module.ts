@@ -5,10 +5,20 @@ import { ButtonModule, DataTableModule, DialogModule, SharedModule } from 'prime
 import { ExampleRoutingModule, routedComponents } from './example-routing.module';
 import { Page1Service } from './page1/page1.service';
 
+import { YzServiceModule } from '../../shared/yz-service/yz-service.module';
+
 @NgModule({
-  imports: [ThemeModule, ExampleRoutingModule,
-    ButtonModule, DataTableModule, DialogModule, SharedModule],
+  imports: [
+    ThemeModule,
+    ExampleRoutingModule,
+    YzServiceModule,
+    ButtonModule,
+    DataTableModule,
+    DialogModule,
+    SharedModule
+  ],
   declarations: [...routedComponents],
   providers: [Page1Service],
+
 })
 export class ExampleModule { }

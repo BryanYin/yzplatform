@@ -1,8 +1,8 @@
 
 export class GeneralEntity {
     constructor(
-        public id?: number,
-        public dbTime?: Date
+        public id: number = null,
+        public dbTime: Date = new Date(),
     ) { }
 }
 
@@ -32,7 +32,7 @@ export class Grade extends GeneralEntity {
         public khpj: number,
         public country: string,
         public eventTime: string,
-    ) { super(null, new Date()); }
+    ) { super(); }
 
     public static titleRow1 = [
         { name: '市场地位', index: 0 },
