@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Page1Service } from './page1.service';
-import { EntityApiService } from '../../../shared/yz-service/entity-api.service';
+import { EntityApiService, ENTITY_ENDPOINT } from '../../../shared/yz-service/entity-api.service';
 import { Grade } from '../../../shared/interfaces';
 import * as _ from 'lodash';
 
 @Component({
     selector: 'yz-example-page1',
     templateUrl: 'page1.component.html',
+    providers: [
+        EntityApiService,
+        {provide: ENTITY_ENDPOINT, useValue: 'api/grades'}
+    ],
 })
 export class Page1Component implements OnInit {
 
