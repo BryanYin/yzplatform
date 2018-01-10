@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 
 import { HttpService } from './http-api.service';
-import { EntityApiService } from './entity-api.service';
 import { YzRouteService } from './yz-route.service';
 import { YzToastService } from './yz-toast.service';
 
@@ -32,7 +31,6 @@ const AUTH_SERVICES = [
 
 const services = [
     HttpService,
-    EntityApiService,
     YzRouteService,
     YzToastService,
     ...AUTH_SERVICES,
