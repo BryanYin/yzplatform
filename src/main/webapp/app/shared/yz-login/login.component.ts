@@ -77,6 +77,9 @@ export class YzLoginComponent {
             this.router.navigate(['/pages']);
         }).catch(() => {
             this.authenticationError = true;
+            this.submitted = false;
+            this.username = null;
+            this.pwd = null;
         });
     }
 

@@ -18,9 +18,12 @@ import { PaginationConfig } from './shared/config/uib-pagination.config';
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToasterModule } from 'angular2-toaster';
 import { ThemeModule } from './@theme/theme.module';
 import { YzServiceModule } from './shared/yz-service/yz-service.module';
 import { YzLoginModule } from './shared/yz-login/login.module';
+import { YzServiceModule } from './shared/yz-service/yz-service.module';
+import { YzInterceptorModule } from './shared/yz-interceptor/yz-interceptor.module';
 
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 
@@ -31,6 +34,7 @@ import { YzLoginModule } from './shared/yz-login/login.module';
         CdbGradeAppRoutingModule,
         FormsModule,
         Ng2Webstorage.forRoot({ prefix: 'yz', separator: '-'}),
+        ToasterModule,
         CdbGradeSharedModule,
         CdbGradeAdminModule,
         CdbGradeAccountModule,
@@ -38,6 +42,8 @@ import { YzLoginModule } from './shared/yz-login/login.module';
         YzLoginModule,
         PagesModule,
         BrowserAnimationsModule,
+        YzServiceModule,
+        YzInterceptorModule,
         NgbModule.forRoot(),
         ThemeModule.forRoot(),
 

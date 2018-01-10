@@ -1,30 +1,23 @@
-import { JhiHttpInterceptor } from 'ng-jhipster';
-import { Injector } from '@angular/core';
-import { RequestOptionsArgs, Response } from '@angular/http';
-import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { AuthServerProvider } from '../../shared/yz-service/auth/auth-session.service';
-// import { LoginModalService } from '../../shared/yz-login/login-modal.service';
 import { StateStorageService } from '../../shared/yz-service/auth/state-storage.service';
+import { Router } from '@angular/router';
+import { Injector } from '@angular/core';
+import { HttpResponse } from '@angular/common/http';
 
-export class AuthExpiredInterceptor extends JhiHttpInterceptor {
+@Injectable()
+export class AuthExpiredInterceptor implements HttpInterceptor {
 
     constructor(
         private injector: Injector,
         private stateStorageService: StateStorageService,
-        private router: Router
-        // private loginServiceModal: LoginModalService
-    ) {
-        super();
-    }
+        private router: Router) {}
 
-    requestIntercept(options?: RequestOptionsArgs): RequestOptionsArgs {
-        return options;
-    }
-
-    responseIntercept(observable: Observable<Response>): Observable<Response> {
-        return <Observable<Response>> observable.catch((error) => {
-            if (error.status === 401 && error.text() !== '' && error.json().path && !error.json().path.includes('/api/account')) {
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        return next.handle(req).catch((err: any, caught) => {
+            if (err instanceof HttpResponse && err.status === 401 && !err.url.includes('/api/account')) {
                 const destination = this.stateStorageService.getDestinationState();
                 if (destination !== null) {
                     const to = destination.destination;
@@ -37,10 +30,9 @@ export class AuthExpiredInterceptor extends JhiHttpInterceptor {
                 }
                 const authServer: AuthServerProvider = this.injector.get(AuthServerProvider);
                 authServer.logout();
-                // this.loginServiceModal.open();
                 this.router.navigate(['/login']);
             }
-            return Observable.throw(error);
+            return Observable.throw(err);
         });
     }
 }
