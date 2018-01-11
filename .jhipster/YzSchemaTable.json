@@ -1,0 +1,21 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "tableSchema",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tableName",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180111062043",
+    "entityTableName": "yz_schema_table",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "skipClient": true
+}

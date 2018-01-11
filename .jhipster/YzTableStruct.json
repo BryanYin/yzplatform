@@ -1,0 +1,57 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "tableSchema",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tableName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ordinalPosition",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "columnName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "characterMaxLength",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numericPrecision",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numericScale",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nullable",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "columnDefault",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180111062044",
+    "entityTableName": "yz_table_struct",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "skipClient": true
+}

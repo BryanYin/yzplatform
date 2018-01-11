@@ -1,0 +1,22 @@
+
+entity YzSchemaTable(YZ_SCHEMA_TABLE){
+    tableSchema String
+    tableName String
+}
+
+entity YzTableStruct(YZ_TABLE_STRUCT){
+    tableSchema String
+    tableName String
+    ordinalPosition Integer
+    columnName String
+    dataType String
+    characterMaxLength Integer
+    numericPrecision Integer
+    numericScale Integer
+    nullable Boolean
+    columnDefault String
+    description String
+}
+
+skipClient YzTableStruct, YzSchemaTable
+service all with serviceClass

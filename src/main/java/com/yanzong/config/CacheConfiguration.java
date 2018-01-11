@@ -44,6 +44,8 @@ public class CacheConfiguration {
             cm.createCache(com.yanzong.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(com.yanzong.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
             cm.createCache(com.yanzong.domain.Grade.class.getName(), jcacheConfiguration);
+            cm.createCache(com.yanzong.domain.YzSchemaTable.class.getName(), jcacheConfiguration);
+            cm.createCache(com.yanzong.domain.YzTableStruct.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
