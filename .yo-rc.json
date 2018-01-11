@@ -13,8 +13,6 @@
     "clusteredHttpSession": false,
     "websocket": false,
     "databaseType": "sql",
-//    "devDatabaseType": "mysql",
-//    "prodDatabaseType": "mysql",
     "devDatabaseType": "postgresql",
     "prodDatabaseType": "postgresql",
     "searchEngine": false,
