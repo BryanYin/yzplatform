@@ -1,18 +1,13 @@
-import { Component, OnInit, InjectionToken, Inject } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import { Page1Service } from './page1.service';
-import { EntityApiService, GENERAL_ENTITY, entityApiFactory, entityProvider } from '../../../shared/yz-service/entity-api.service';
+import { HttpClient } from '@angular/common/http';
+import { EntityApiService } from '../../../shared/yz-service/entity-api';
 import { Grade } from '../../../shared/interfaces';
 import * as _ from 'lodash';
-
-const GradeApiService = new InjectionToken<EntityApiService<Grade>>('apiService.grade');
 
 @Component({
     selector: 'yz-example-page1',
     templateUrl: 'page1.component.html',
-    providers: [
-        entityProvider(GradeApiService),
-        { provide: GENERAL_ENTITY, useValue: new Grade(), multi: true },
-    ],
 })
 export class Page1Component implements OnInit {
 
@@ -26,10 +21,12 @@ export class Page1Component implements OnInit {
     public titleRow1: any;
     public titleRow2: any;
 
-    constructor(private service: Page1Service,
-        @Inject(GradeApiService) private api: EntityApiService<Grade>) {
+    private api;
+
+    constructor(private service: Page1Service, private injector: Injector) {
         this.titleRow1 = Grade.titleRow1;
         this.titleRow2 = Grade.titleRow2;
+        this.api = new EntityApiService<Grade>(this.injector.get(HttpClient), new Grade());
     }
 
     ngOnInit() {
@@ -71,8 +68,9 @@ export class Page1Component implements OnInit {
 
     delete() {
         const index = this.findSelectedGradeIndex();
+        const id = this.gradeRecords[index].id;
         this.gradeRecords = this.gradeRecords.filter((val, i) => i !== index);
-        this.api.delete(this.gradeRecords[index].id).subscribe();
+        this.api.delete(id).subscribe();
         this.dialogGrade = null;
         this.displayDialog = false;
     }
