@@ -3,7 +3,7 @@
     "promptValues": {
       "packageName": "com.yanzong"
     },
-    "jhipsterVersion": "4.12.0",
+    "jhipsterVersion": "4.13.3",
     "baseName": "cdb_grade",
     "packageName": "com.yanzong",
     "packageFolder": "com/yanzong",
@@ -28,6 +28,8 @@
     "applicationType": "monolith",
     "testFrameworks": [],
     "jhiPrefix": "jhi",
-    "enableTranslation": false
+    "enableTranslation": false,
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true
   }
 }

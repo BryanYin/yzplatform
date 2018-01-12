@@ -1,6 +1,6 @@
 /* tslint:disable max-line-length */
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 import { CdbGradeTestModule } from '../../../test.module';
 import { YzSchemaTableDetailComponent } from '../../../../../../main/webapp/app/entities/yz-schema-table/yz-schema-table-detail.component';

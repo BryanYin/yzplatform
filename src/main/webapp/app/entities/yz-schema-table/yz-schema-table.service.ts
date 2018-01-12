@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
 import { YzSchemaTable } from './yz-schema-table.model';
@@ -9,7 +9,7 @@ import { ResponseWrapper, createRequestOption } from '../../shared';
 @Injectable()
 export class YzSchemaTableService {
 
-    private resourceUrl = SERVER_API_URL + 'api/yz-schema-tables';
+    private resourceUrl =  SERVER_API_URL + 'api/yz-schema-tables';
 
     constructor(private http: Http) { }
 
