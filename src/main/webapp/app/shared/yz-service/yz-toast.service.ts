@@ -36,7 +36,7 @@ export enum ToastPosition {
 @Injectable()
 export class YzToastService {
 
-    private config: ToasterConfig;
+    public config: ToasterConfig;
 
     timeout: number = 3000;
     toastsLimit: number = 5;
