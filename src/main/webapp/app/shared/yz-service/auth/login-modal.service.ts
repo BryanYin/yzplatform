@@ -15,9 +15,7 @@ export class LoginModalService {
             return;
         }
         this.isOpen = true;
-        const modalRef = this.modalService.open(YzLoginComponent, {
-            container: 'nav'
-        });
+        const modalRef = this.modalService.open(YzLoginComponent);
         modalRef.result.then((result) => {
             this.isOpen = false;
         }, (reason) => {

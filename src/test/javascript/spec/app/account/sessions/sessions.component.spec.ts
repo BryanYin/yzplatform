@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, inject, tick, fakeAsync } from '@angular/core/testing';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 import { CdbGradeTestModule } from '../../../test.module';
 import { Session } from '../../../../../../main/webapp/app/shared/yz-account/sessions/session.model';
