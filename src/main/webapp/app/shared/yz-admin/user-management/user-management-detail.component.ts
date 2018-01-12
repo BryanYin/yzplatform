@@ -11,7 +11,7 @@ import { User, UserService } from '../../../shared';
 export class UserMgmtDetailComponent implements OnInit, OnDestroy {
 
     user: User;
-    private subscription: Subscription;
+    private subscription: any;
 
     constructor(
         private userService: UserService,

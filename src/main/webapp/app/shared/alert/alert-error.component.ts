@@ -16,7 +16,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class JhiAlertErrorComponent implements OnDestroy {
 
     alerts: any[];
-    cleanHttpErrorListener: Subscription;
+    cleanHttpErrorListener: any;
     // tslint:disable-next-line: no-unused-variable
     constructor(private alertService: JhiAlertService, private eventManager: JhiEventManager) {
         this.alerts = [];

@@ -4,53 +4,20 @@ import { Observable } from 'rxjs/Rx';
 import { SERVER_API_URL } from '../../app.constants';
 
 import { GeneralEntity } from '../interfaces';
-import { JhiDateUtils } from 'ng-jhipster';
 import { ResponseWrapper, createRequestOption } from '../../shared';
 
-export const GENERAL_ENTITY = new InjectionToken<GeneralEntity>('general.entity');
-export const entityApiFactory = (http: HttpClient, dateUtils: JhiDateUtils, ge: GeneralEntity | Array<GeneralEntity>) => {
-    return new EntityApiService(http, dateUtils, ge);
-};
-
-export function entityProvider(serviceClass: InjectionToken<GeneralEntity>): FactoryProvider {
-    return {
-        provide: serviceClass,
-        useFactory: entityApiFactory,
-        deps: [HttpClient, JhiDateUtils, GENERAL_ENTITY]
-    };
-}
-
-/** this service should be provided by each entity component, so it is not start with prefix yz-
- example:
-import { EntityApiService, GENERAL_ENTITY, entityApiFactory, entityProvider } from '../../../shared/yz-service/entity-api.service';
-const GradeApiService = new InjectionToken<EntityApiService<Grade>>('apiService.grade');
-@Component({
-    selector: 'yz-example-page1',
-    templateUrl: 'page1.component.html',
-    providers: [
-        entityProvider(GradeApiService),
-        { provide: GENERAL_ENTITY, useValue: new Grade() },
-    ],
-})
+/** this entityApi should be able to serve multiple entities in one component, so write it as normal class not service.
 */
-@Injectable()
 export class EntityApiService<T extends GeneralEntity> {
 
     private resourceUrl = SERVER_API_URL;
-    private typeIndicator: { new(): T; };
+    private typeIndicator: {new (): T};
+    private http: HttpClient;
 
-    constructor(
-        private http: HttpClient,
-        private dateUtils: JhiDateUtils,
-        @Inject(GENERAL_ENTITY) ge: GeneralEntity | Array<GeneralEntity>) {
-        let endpoint: string;
-        if (ge instanceof Array) {
-            const x = new this.typeIndicator();
-            endpoint = ge.filter((g) => g.constructor.toString() === x.constructor.toString()).pop().endpoint;
-        } else {
-            endpoint = ge.endpoint;
-        }
-        this.resourceUrl = SERVER_API_URL + endpoint;
+    constructor( httpClient: HttpClient, entity: T) {
+        this.http = httpClient;
+        this.resourceUrl = SERVER_API_URL + entity.endpoint;
+        console.log('Created entity service!');
     }
 
     create(entity: T): Observable<T> {
@@ -96,8 +63,7 @@ export class EntityApiService<T extends GeneralEntity> {
      */
     private convertItemFromServer(json: any): T {
         const entity: T = Object.assign({}, json);
-        entity.dbTime = this.dateUtils
-            .convertDateTimeFromServer(json.dbTime);
+        entity.dbTime = new Date(json.dbTime);
         return entity;
     }
 
