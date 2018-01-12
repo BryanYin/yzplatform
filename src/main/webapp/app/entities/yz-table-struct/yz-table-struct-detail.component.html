@@ -1,0 +1,66 @@
+
+<div *ngIf="yzTableStruct">
+    <h2><span>Yz Table Struct</span> {{yzTableStruct.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Table Schema</span></dt>
+        <dd>
+            <span>{{yzTableStruct.tableSchema}}</span>
+        </dd>
+        <dt><span>Table Name</span></dt>
+        <dd>
+            <span>{{yzTableStruct.tableName}}</span>
+        </dd>
+        <dt><span>Ordinal Position</span></dt>
+        <dd>
+            <span>{{yzTableStruct.ordinalPosition}}</span>
+        </dd>
+        <dt><span>Column Name</span></dt>
+        <dd>
+            <span>{{yzTableStruct.columnName}}</span>
+        </dd>
+        <dt><span>Data Type</span></dt>
+        <dd>
+            <span>{{yzTableStruct.dataType}}</span>
+        </dd>
+        <dt><span>Character Max Length</span></dt>
+        <dd>
+            <span>{{yzTableStruct.characterMaxLength}}</span>
+        </dd>
+        <dt><span>Numeric Precision</span></dt>
+        <dd>
+            <span>{{yzTableStruct.numericPrecision}}</span>
+        </dd>
+        <dt><span>Numeric Scale</span></dt>
+        <dd>
+            <span>{{yzTableStruct.numericScale}}</span>
+        </dd>
+        <dt><span>Nullable</span></dt>
+        <dd>
+            <span>{{yzTableStruct.nullable}}</span>
+        </dd>
+        <dt><span>Column Default</span></dt>
+        <dd>
+            <span>{{yzTableStruct.columnDefault}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{yzTableStruct.description}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'yz-table-struct/'+ yzTableStruct.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

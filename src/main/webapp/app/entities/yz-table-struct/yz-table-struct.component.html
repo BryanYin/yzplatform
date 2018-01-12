@@ -1,0 +1,78 @@
+<div>
+    <h2>
+        <span>Yz Table Structs</span>
+        <button class="btn btn-primary float-right jh-create-entity create-yz-table-struct" [routerLink]="['/', { outlets: { popup: ['yz-table-struct-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Yz Table Struct
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="yzTableStructs">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Table Schema</span></th>
+            <th><span>Table Name</span></th>
+            <th><span>Ordinal Position</span></th>
+            <th><span>Column Name</span></th>
+            <th><span>Data Type</span></th>
+            <th><span>Character Max Length</span></th>
+            <th><span>Numeric Precision</span></th>
+            <th><span>Numeric Scale</span></th>
+            <th><span>Nullable</span></th>
+            <th><span>Column Default</span></th>
+            <th><span>Description</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let yzTableStruct of yzTableStructs ;trackBy: trackId">
+                <td><a [routerLink]="['../yz-table-struct', yzTableStruct.id ]">{{yzTableStruct.id}}</a></td>
+                <td>{{yzTableStruct.tableSchema}}</td>
+                <td>{{yzTableStruct.tableName}}</td>
+                <td>{{yzTableStruct.ordinalPosition}}</td>
+                <td>{{yzTableStruct.columnName}}</td>
+                <td>{{yzTableStruct.dataType}}</td>
+                <td>{{yzTableStruct.characterMaxLength}}</td>
+                <td>{{yzTableStruct.numericPrecision}}</td>
+                <td>{{yzTableStruct.numericScale}}</td>
+                <td>{{yzTableStruct.nullable}}</td>
+                <td>{{yzTableStruct.columnDefault}}</td>
+                <td>{{yzTableStruct.description}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../yz-table-struct', yzTableStruct.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'yz-table-struct/'+ yzTableStruct.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'yz-table-struct/'+ yzTableStruct.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myYzTableStructLabel">Create or edit a Yz Table Struct</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!yzTableStruct.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="yzTableStruct.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_tableSchema">Table Schema</label>
+            <input type="text" class="form-control" name="tableSchema" id="field_tableSchema"
+                [(ngModel)]="yzTableStruct.tableSchema" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_tableName">Table Name</label>
+            <input type="text" class="form-control" name="tableName" id="field_tableName"
+                [(ngModel)]="yzTableStruct.tableName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_ordinalPosition">Ordinal Position</label>
+            <input type="number" class="form-control" name="ordinalPosition" id="field_ordinalPosition"
+                [(ngModel)]="yzTableStruct.ordinalPosition" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_columnName">Column Name</label>
+            <input type="text" class="form-control" name="columnName" id="field_columnName"
+                [(ngModel)]="yzTableStruct.columnName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_dataType">Data Type</label>
+            <input type="text" class="form-control" name="dataType" id="field_dataType"
+                [(ngModel)]="yzTableStruct.dataType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_characterMaxLength">Character Max Length</label>
+            <input type="number" class="form-control" name="characterMaxLength" id="field_characterMaxLength"
+                [(ngModel)]="yzTableStruct.characterMaxLength" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_numericPrecision">Numeric Precision</label>
+            <input type="number" class="form-control" name="numericPrecision" id="field_numericPrecision"
+                [(ngModel)]="yzTableStruct.numericPrecision" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_numericScale">Numeric Scale</label>
+            <input type="number" class="form-control" name="numericScale" id="field_numericScale"
+                [(ngModel)]="yzTableStruct.numericScale" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_nullable">Nullable</label>
+            <input type="checkbox" class="form-control" name="nullable" id="field_nullable"
+                [(ngModel)]="yzTableStruct.nullable" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_columnDefault">Column Default</label>
+            <input type="text" class="form-control" name="columnDefault" id="field_columnDefault"
+                [(ngModel)]="yzTableStruct.columnDefault" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="yzTableStruct.description" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

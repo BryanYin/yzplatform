@@ -1,0 +1,14 @@
+version: '2'
+services:
+    cdb_grade-app:
+        image: cdb_grade
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://cdb_grade-postgresql:5432/cdb_grade
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    cdb_grade-postgresql:
+        extends:
+            file: postgresql.yml
+            service: cdb_grade-postgresql
