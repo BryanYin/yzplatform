@@ -1,9 +1,10 @@
 
 export class GeneralEntity {
-    constructor(
-        public id: number = null,
-        public dbTime: Date = new Date(),
-    ) { }
+    public id: number = null;
+    public dbTime: Date = new Date();
+    constructor(readonly endpoint: string) {
+
+    }
 }
 
 /**
@@ -22,17 +23,17 @@ export class GeneralEntity {
  */
 export class Grade extends GeneralEntity {
     constructor(
-        public name: string,
-        public scdw: number,
-        public ggbl: number,
-        public llys: number,
-        public xjldx: number,
-        public csnl: number,
-        public ylnl: number,
-        public khpj: number,
-        public country: string,
-        public eventTime: string,
-    ) { super(); }
+        public name?: string,
+        public scdw?: number,
+        public ggbl?: number,
+        public llys?: number,
+        public xjldx?: number,
+        public csnl?: number,
+        public ylnl?: number,
+        public khpj?: number,
+        public country?: string,
+        public eventTime?: string,
+    ) { super('api/grades'); }
 
     public static titleRow1 = [
         { name: '市场地位', index: 0 },

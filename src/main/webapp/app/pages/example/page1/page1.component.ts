@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, InjectionToken, Inject } from '@angular/core';
 import { Page1Service } from './page1.service';
-import { EntityApiService, ENTITY_ENDPOINT } from '../../../shared/yz-service/entity-api.service';
+import { EntityApiService, GENERAL_ENTITY, entityApiFactory, entityProvider } from '../../../shared/yz-service/entity-api.service';
 import { Grade } from '../../../shared/interfaces';
 import * as _ from 'lodash';
+
+const GradeApiService = new InjectionToken<EntityApiService<Grade>>('apiService.grade');
 
 @Component({
     selector: 'yz-example-page1',
     templateUrl: 'page1.component.html',
     providers: [
-        EntityApiService,
-        {provide: ENTITY_ENDPOINT, useValue: 'api/grades'}
+        entityProvider(GradeApiService),
+        { provide: GENERAL_ENTITY, useValue: new Grade(), multi: true },
     ],
 })
 export class Page1Component implements OnInit {
@@ -24,7 +26,8 @@ export class Page1Component implements OnInit {
     public titleRow1: any;
     public titleRow2: any;
 
-    constructor(private service: Page1Service, private api: EntityApiService) {
+    constructor(private service: Page1Service,
+        @Inject(GradeApiService) private api: EntityApiService<Grade>) {
         this.titleRow1 = Grade.titleRow1;
         this.titleRow2 = Grade.titleRow2;
     }
