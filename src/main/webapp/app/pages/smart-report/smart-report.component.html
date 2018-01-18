@@ -1,0 +1,30 @@
+<nb-card>
+    <nb-card-body>
+        <div>
+            <div class="row">
+                <div class="btngrp col col-md-12">
+                    <button *ngFor="let btn of chartButtons; let i=index" class="ui-button-info col-md-1" pButton type="button" [icon]="btn.icon" iconPos="left" (click)="btnClicked($event,i)"></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-md-4">
+                    <p-tree [value]="treeData" draggableNodes="true" draggableScope="treeNode">
+                    </p-tree>
+                </div>
+                <div class="col col-md-4">
+                    <p-tree [value]="selectNames" droppableNodes="true" droppableScope="treeNode" (onNodeDrop)="onDropNames($event)">
+                    </p-tree>
+                </div>
+                <div class="col col-md-4">
+                    <p-tree [value]="selectValues" droppableNodes="true" droppableScope="treeNode" (onNodeDrop)="onDropValues($event)">
+                    </p-tree>
+                </div>
+            </div>
+            <div class="row">
+                <div class="ecdiv col col-md-12">
+                    <yz-echarts [options]="echartOption"></yz-echarts>
+                </div>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

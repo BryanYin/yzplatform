@@ -3,21 +3,19 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 import { SERVER_API_URL } from '../../app.constants';
 
-import { GeneralEntity } from '../interfaces';
+import { Entity } from '../interfaces';
 import { ResponseWrapper, createRequestOption } from '../../shared';
 
 /** this entityApi should be able to serve multiple entities in one component, so write it as normal class not service.
 */
-export class EntityApiService<T extends GeneralEntity> {
+export class EntityApiService<T extends Entity> {
 
     private resourceUrl = SERVER_API_URL;
-    private typeIndicator: {new (): T};
     private http: HttpClient;
 
-    constructor( httpClient: HttpClient, entity: T) {
+    constructor(httpClient: HttpClient, entity: T) {
         this.http = httpClient;
         this.resourceUrl = SERVER_API_URL + entity.endpoint;
-        console.log('Created entity service!');
     }
 
     create(entity: T): Observable<T> {
@@ -51,7 +49,7 @@ export class EntityApiService<T extends GeneralEntity> {
     }
 
     private convertResponse(res): ResponseWrapper {
-        const result = [];
+        const result: T[] = [];
         for (let i = 0; i < res.length; i++) {
             result.push(this.convertItemFromServer(res[i]));
         }
@@ -63,7 +61,11 @@ export class EntityApiService<T extends GeneralEntity> {
      */
     private convertItemFromServer(json: any): T {
         const entity: T = Object.assign({}, json);
-        entity.dbTime = new Date(json.dbTime);
+        for (const key in entity) {
+            if (entity.hasOwnProperty(key) && <any>entity[key] instanceof Date && json.hasOwnProperty(key)) {
+                entity[key] = new Date(json[key]);
+            }
+        }
         return entity;
     }
 

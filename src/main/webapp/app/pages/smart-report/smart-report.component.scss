@@ -1,0 +1,21 @@
+@import '../../../assets/scss/global';
+@import '../../@theme/styles/themes';
+@include nb-install-component() {
+    yz-echarts {
+        height: 80vh;
+        width: 80vw;
+        /deep/ .echart {
+            height: 50vh;
+            width: 48vw;
+        }
+    }
+    .btngrp {
+        margin-bottom: 2vh;
+    }
+    /deep/ .ui-tree .ui-tree-container {
+        height: 21vh;
+    }
+    /deep/ .ui-button {
+        margin-right: 1vw;
+    }
+}

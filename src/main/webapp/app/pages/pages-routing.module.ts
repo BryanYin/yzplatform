@@ -16,6 +16,10 @@ export const PageRoutes: Routes = [{
     //   component: FirstPageComponent,
     // },
     {
+      path: 'smart-report',
+      loadChildren: './smart-report/smart-report.module#SmartReportModule',
+    },
+    {
       path: 'example',
       loadChildren: './example/example.module#ExampleModule',
     }, {
