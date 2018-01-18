@@ -23,6 +23,7 @@ import { ThemeModule } from './@theme/theme.module';
 import { YzLoginModule } from './shared/yz-login/login.module';
 import { YzServiceModule } from './shared/yz-service/yz-service.module';
 import { YzInterceptorModule } from './shared/yz-interceptor/yz-interceptor.module';
+import { NbLayoutModule, NbCardModule, NbCheckboxModule } from '@nebular/theme';
 
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 
@@ -43,6 +44,7 @@ import { YzInterceptorModule } from './shared/yz-interceptor/yz-interceptor.modu
         BrowserAnimationsModule,
         YzServiceModule,
         YzInterceptorModule,
+        NbLayoutModule, NbCardModule, NbCheckboxModule,
         NgbModule.forRoot(),
         ThemeModule.forRoot(),
 

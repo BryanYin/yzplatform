@@ -22,6 +22,17 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+  {
+    title: '智能报表',
+    icon: 'nb-bar-chart',
+    // link: '/pages/smart-report',
+    children: [
+      {
+        title: '自动报表',
+        link: '/pages/smart-report',
+      },
+    ],
+  },
   // {
   //   title: 'Auth',
   //   icon: 'nb-locked',

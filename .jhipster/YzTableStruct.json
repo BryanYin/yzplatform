@@ -52,6 +52,6 @@
     "dto": "no",
     "pagination": "no",
     "service": "serviceClass",
-    "jpaMetamodelFiltering": false,
+    "jpaMetamodelFiltering": true,
     "skipClient": true
 }
