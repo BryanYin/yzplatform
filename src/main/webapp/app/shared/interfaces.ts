@@ -4,6 +4,8 @@
  * endpoint - end point of api call
  */
 export abstract class Entity {
+    public static tableDecription: string;
+    public static fieldsDescription: Map<string, string>;
     public id: number = null;
     constructor(public readonly endpoint: string) {
     }
@@ -92,3 +94,7 @@ export class Grade extends GeneralEntity {
         { field: 'eventTime', name: '填写时间', index: 8 }
     ];
 }
+export const REPORT_ENTITY = {
+    'yz_schema_table': YzSchemaTable,
+    'yz_table_struct': YzTableStruct,
+};

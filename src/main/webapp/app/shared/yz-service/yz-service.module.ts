@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 
 import { HttpService } from './http-api.service';
 import { YzRouteService } from './yz-route.service';
-import { YzToastService } from './yz-toast.service';
 
 import { ToasterModule } from 'angular2-toaster';
 
@@ -32,7 +31,6 @@ const AUTH_SERVICES = [
 const services = [
     HttpService,
     YzRouteService,
-    YzToastService,
     ...AUTH_SERVICES,
 ];
 

@@ -1,12 +1,22 @@
 @import '../../../assets/scss/global';
 @import '../../@theme/styles/themes';
+
+$bg:#210629;
+
 @include nb-install-component() {
     yz-echarts {
-        height: 80vh;
-        width: 80vw;
+        display: block;
+        margin-top: 5vh;
+        background: $bg;
+        height: 50vh;
+        width: 70.5vw;
         /deep/ .echart {
+            background: $bg;
             height: 50vh;
-            width: 48vw;
+            width: 70.5vw;
+            canvas {
+                background: $bg;
+            }
         }
     }
     .btngrp {
@@ -17,5 +27,8 @@
     }
     /deep/ .ui-button {
         margin-right: 1vw;
+    }
+    /deep/ .ui-chkbox-label{
+        margin-bottom: 0;
     }
 }
