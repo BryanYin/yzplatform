@@ -20,7 +20,7 @@ import * as echarts from 'echarts';
 export class YzEchartsComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() options: any;
   @Input() dataset: any[];
-  @Input() theme: any= 'echart-theme';
+  @Input() theme: any = 'echart-theme';
   @Input() loading: boolean;
   @Input() nameMap: string;
 
@@ -61,8 +61,8 @@ export class YzEchartsComponent implements OnInit, OnChanges, AfterViewInit {
       );
     }
     if (this.theme) {
-        console.log('theme in component', this.theme);
-        echarts.registerTheme(this.theme, this.service.getTheme());
+      this.service.getTheme().subscribe((theme) => echarts.registerTheme(this.theme, theme));
+      // echarts.registerTheme(this.theme, this.service.getTheme());
     }
   }
 

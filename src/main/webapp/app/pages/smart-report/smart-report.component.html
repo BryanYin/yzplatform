@@ -3,8 +3,10 @@
         <div>
             <div class="row">
                 <div class="btngrp col col-md-12">
-                    <button *ngFor="let btn of chartButtons; let i=index" class="ui-button-info col-md-1" pButton type="button" [icon]="btn.icon" iconPos="left" (click)="btnClicked($event,i)"></button>
+                    <button *ngFor="let btn of chartButtons; let i=index" class="ui-button-info col-md-1" pButton type="button" [icon]="btn.icon" iconPos="left" (click)="btnClicked(btn)"></button>
+                    <p-checkbox class="col-md-1" [(ngModel)]="renew" binary="true" label="重新加载数据"></p-checkbox>
                 </div>
+                
             </div>
             <div class="row">
                 <div class="col col-md-4">

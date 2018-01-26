@@ -25,6 +25,9 @@ import { YzServiceModule } from './shared/yz-service/yz-service.module';
 import { YzInterceptorModule } from './shared/yz-interceptor/yz-interceptor.module';
 import { NbLayoutModule, NbCardModule, NbCheckboxModule } from '@nebular/theme';
 
+// Toast service should be provided at app level
+import { YzToastService } from './shared/yz-service/yz-toast.service';
+
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 
 @NgModule({
@@ -56,7 +59,8 @@ import { NbLayoutModule, NbCardModule, NbCheckboxModule } from '@nebular/theme';
         { provide: APP_BASE_HREF, useValue: '/' },
         PaginationConfig,
         NgbActiveModal,
-        UserRouteAccessService
+        UserRouteAccessService,
+        YzToastService
     ],
     bootstrap: [ AppComponent ]
 })

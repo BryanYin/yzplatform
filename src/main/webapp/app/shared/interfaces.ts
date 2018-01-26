@@ -4,6 +4,8 @@
  * endpoint - end point of api call
  */
 export abstract class Entity {
+    public static tableDecription: string;
+    public static fieldsDescription: Map<string, string>;
     public id: number = null;
     constructor(public readonly endpoint: string) {
     }
@@ -40,3 +42,8 @@ export class YzTableStruct extends Entity {
         public description?: string,
     ) { super('api/yz-table-structs'); }
 }
+
+export const REPORT_ENTITY = {
+    'yz_schema_table': YzSchemaTable,
+    'yz_table_struct': YzTableStruct,
+};

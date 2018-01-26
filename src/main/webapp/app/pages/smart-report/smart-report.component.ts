@@ -5,8 +5,13 @@ import { HttpClient } from '@angular/common/http';
 import { ResponseWrapper } from '../../shared';
 
 import { TreeNode, TreeDragDropService } from 'primeng/primeng';
-import { SmartReportService } from './smart-report.service';
+import { SmartReportService, TableField } from './smart-report.service';
 import { YzEchartsService } from '../../shared/yz-echarts/yz-echats.service';
+import { YzToastService, ToastType, ToastPosition, ToastAnimation } from '../../shared/yz-service/yz-toast.service';
+
+enum ChartTypes {
+    BAR, LINE, PIE, AREA
+}
 
 @Component({
     selector: 'yz-smart-report',
@@ -23,23 +28,23 @@ export class SmartReportComponent implements OnInit {
     private tableNames: string[] = [];
     private tableFields: Map<string, YzTableStruct[]> = new Map();
 
+    public renew: boolean = false;
     public treeData: TreeNode[] = [];
-
     public selectNames: TreeNode[];
     public selectValues: TreeNode[];
-
-    public echartOption: any;
+    public echartOption: any = {};
     public chartButtons: any = [
-        { icon: 'fa-area-chart' },
-        { icon: 'fa-bar-chart' },
-        { icon: 'fa-line-chart' },
-        { icon: 'fa-pie-chart' }
+        { icon: 'fa-bar-chart', type: ChartTypes.BAR },
+        // { icon: 'fa-line-chart', type: ChartTypes.LINE },
+        { icon: 'fa-pie-chart', type: ChartTypes.PIE },
+        // { icon: 'fa-area-chart', type: ChartTypes.AREA},
     ];
 
     constructor(
         private injector: Injector,
         private service: SmartReportService,
-        private echartService: YzEchartsService
+        private echartService: YzEchartsService,
+        private toaster: YzToastService
     ) {
         this.tableNameApi = new EntityApiService(this.injector.get(HttpClient), new YzSchemaTable());
         this.tableStructApi = new EntityApiService(this.injector.get(HttpClient), new YzTableStruct());
@@ -78,16 +83,16 @@ export class SmartReportComponent implements OnInit {
                     expandedIcon: 'fa-table',
                 };
                 const children: TreeNode[] = [];
-                value.forEach((d) => {
 
+                value.forEach((d) => {
                     children.push({
-                        label: d.columnName,
-                        data: { field: d.columnName, fieldType: d.dataType },
+                        label: d.description || d.columnName,
+                        data: new TableField(key, d.columnName, d.dataType),
                         collapsedIcon: 'fa-columns',
                         expandedIcon: 'fa-columns'
                     });
-
                 });
+
                 parent.children = children;
                 ret.push(parent);
             }
@@ -105,22 +110,34 @@ export class SmartReportComponent implements OnInit {
         this.selectValues = this.service.selectedValues;
     }
 
-    btnClicked(e, i) {
-        switch (i) {
-            case 0: // area-chart
-            this.echartOption = this.echartService.getLineChartOptionTemplate();
-                break;
-            case 1: // bar-chart
-
-                break;
-            case 2: // line-chart
-
-                break;
-            case 3: // pie-chart
-
-                break;
-            default:
-                break;
+    btnClicked(btn: any) {
+        if (!this.service.selectedValues[0].children || !this.service.selectedNames[0].children) {
+            this.toaster.showToast('数轴数据错误', '分类轴或者数值轴没有选择数据列',
+                ToastType.TYPE_WARNING, ToastPosition.TOP_FULL_WIDTH, ToastAnimation.FADE, 5000);
+            return;
         }
+
+        this.service.constructData(this.renew).subscribe((data) => {
+            // console.log('data',data);
+            if (!data || data.size === 0) {
+                return;
+            }
+            switch (btn.type) {
+                // case ChartTypes.AREA:
+                //     this.echartOption = this.echartService.getAreaChartOptionTemplate(data);
+                //         break;
+                case ChartTypes.BAR:
+                    this.echartOption = this.echartService.getBarChartOptionTemplate(data);
+                    break;
+                case ChartTypes.LINE:
+                    this.echartOption = this.echartService.getLineChartOptionTemplate(data);
+                    break;
+                case ChartTypes.PIE:
+                    this.echartOption = this.echartService.getPieChartOptionTemplate(data);
+                    break;
+                default:
+                    break;
+            }
+        });
     }
 }
