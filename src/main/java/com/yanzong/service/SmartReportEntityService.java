@@ -1,6 +1,7 @@
 package com.yanzong.service;
 
 import com.yanzong.config.Constants;
+import com.yanzong.repository.GradeRepository;
 import com.yanzong.repository.UserRepository;
 import com.yanzong.repository.YzSchemaTableRepository;
 import com.yanzong.repository.YzTableStructRepository;
@@ -25,6 +26,8 @@ public class SmartReportEntityService {
     private YzSchemaTableRepository yzSchemaTableRepository;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private GradeRepository gradeRepository;
 
     @Transactional(readOnly = true)
     public List<Object> queryDataByTableName(String tableName) {
@@ -49,6 +52,10 @@ public class SmartReportEntityService {
                 break;
             case Constants.TB_JHI_USER:
                 repo = userRepository;
+                break;
+            case Constants.TB_CDB_GRADE:
+                repo = gradeRepository;
+                break;
             default:
                 break;
         }

@@ -15,6 +15,7 @@ public final class Constants {
     public static final String TB_YZ_SCHEMA_TABLE = "yz_schema_table";
     public static final String TB_YZ_TABLE_STRUCT = "yz_table_struct";
     public static final String TB_JHI_USER = "jhi_user";
+    public static final String TB_CDB_GRADE = "cdb_grade";
 
     private Constants() {
     }
