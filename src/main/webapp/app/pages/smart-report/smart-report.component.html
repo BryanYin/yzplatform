@@ -3,10 +3,11 @@
         <div>
             <div class="row">
                 <div class="btngrp col col-md-12">
-                    <button *ngFor="let btn of chartButtons; let i=index" class="ui-button-info col-md-1" pButton type="button" [icon]="btn.icon" iconPos="left" (click)="btnClicked(btn)"></button>
+                    <button *ngFor="let btn of chartButtons; let i=index" class="ui-button-info col-md-1" pButton type="button" [icon]="btn.icon"
+                        iconPos="left" (click)="btnClicked(btn)"></button>
                     <p-checkbox class="col-md-1" [(ngModel)]="renew" binary="true" label="重新加载数据"></p-checkbox>
                 </div>
-                
+
             </div>
             <div class="row">
                 <div class="col col-md-4">
@@ -14,11 +15,19 @@
                     </p-tree>
                 </div>
                 <div class="col col-md-4">
-                    <p-tree [value]="selectNames" droppableNodes="true" droppableScope="treeNode" (onNodeDrop)="onDropNames($event)">
+                    <p-tree [value]="selectNames" droppableNodes="true" droppableScope="treeNode" (onNodeDrop)="onDrop(1,$event)">
+                        <ng-template let-node pTemplate="default">
+                            <label>{{node.label}}</label>
+                            <button class="minus-btn" *ngIf="!isRoot(node)" pButton type="button" (click)="minusClicked(1,node)" icon="fa-times"></button>
+                        </ng-template>
                     </p-tree>
                 </div>
                 <div class="col col-md-4">
-                    <p-tree [value]="selectValues" droppableNodes="true" droppableScope="treeNode" (onNodeDrop)="onDropValues($event)">
+                    <p-tree [value]="selectValues" droppableNodes="true" droppableScope="treeNode" (onNodeDrop)="onDrop(2,$event)">
+                        <ng-template let-node pTemplate="default">
+                            <label>{{node.label}}</label>
+                            <button class="minus-btn" *ngIf="!isRoot(node)" pButton type="button" (click)="minusClicked(2,node)" icon="fa-times"></button>
+                        </ng-template>
                     </p-tree>
                 </div>
             </div>

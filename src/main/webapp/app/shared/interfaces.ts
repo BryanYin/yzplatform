@@ -43,7 +43,7 @@ export class YzTableStruct extends Entity {
     ) { super('api/yz-table-structs'); }
 }
 
-export const REPORT_ENTITY = {
-    'yz_schema_table': YzSchemaTable,
-    'yz_table_struct': YzTableStruct,
+export const REPORT_ENTITY_NAMES = {
+    'yz_schema_table': 'schema table',
+    'yz_table_struct': 'table struct',
 };
