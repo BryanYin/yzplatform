@@ -25,10 +25,17 @@ $bg:#210629;
     /deep/ .ui-tree .ui-tree-container {
         height: 21vh;
     }
-    /deep/ .ui-button {
+    .ui-button-info {
         margin-right: 1vw;
     }
     /deep/ .ui-chkbox-label{
         margin-bottom: 0;
+    }
+    .minus-btn{
+        // margin-left: 150px;
+        position: relative;
+        background: transparent;
+        border: none;
+        color: red;
     }
 }

@@ -94,7 +94,9 @@ export class Grade extends GeneralEntity {
         { field: 'eventTime', name: '填写时间', index: 8 }
     ];
 }
-export const REPORT_ENTITY = {
-    'yz_schema_table': YzSchemaTable,
-    'yz_table_struct': YzTableStruct,
+
+export const REPORT_ENTITY_NAMES = {
+    'yz_schema_table': 'schema table',
+    'yz_table_struct': 'table struct',
+    'cdb_grade': '授信表',
 };

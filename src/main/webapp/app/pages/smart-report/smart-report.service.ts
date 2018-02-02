@@ -14,7 +14,13 @@ export class TableField {
     constructor(
         public table: string,
         public field: string,
-        public fieldType: string) { }
+        public fieldType: string,
+        public position: number) { }
+}
+
+export enum SelectedTypes {
+    NAMES = 1,
+    VALUES = 2
 }
 
 @Injectable()
@@ -35,6 +41,7 @@ export class SmartReportService {
             collapsedIcon: 'fa-plus',
             expanded: true,
             children: null,
+            type: 'root',
         }
     ];
 
@@ -46,6 +53,7 @@ export class SmartReportService {
             collapsedIcon: 'fa-plus',
             expanded: true,
             children: null,
+            type: 'root',
         }
     ];
 
@@ -96,14 +104,14 @@ export class SmartReportService {
 
     private getDataArray(): Map<string, Array<any>> {
         const dataNamesColumns = this._selectedNames[0].children
-            .filter((c) => (<string>c.data.fieldType).toLowerCase().includes('char')).map((c) => c.data);
+            .filter((c) => this.isStringNode(c)).map((c) => c.data);
         if (dataNamesColumns.length === 0) {
             this.toaster.showToast('分类轴没有选择字符字段', '分类轴必须要选择字符字段', ToastType.TYPE_WARNING, ToastPosition.CENTER);
             return null;
         }
 
         const dataValuesColumns = this.selectedValues[0].children
-            .filter((c) => (<string>c.data.fieldType).toLowerCase().includes('int')).map((c) => c.data);
+            .filter((c) => this.isNumberNode(c)).map((c) => c.data);
         if (dataValuesColumns.length === 0) {
             this.toaster.showToast('数值轴没有选择数值字段', '数值轴必须要选择数值字段', ToastType.TYPE_WARNING, ToastPosition.CENTER);
             return null;
@@ -130,28 +138,78 @@ export class SmartReportService {
         return retMap;
     }
 
-    public addSelectedName(name: TreeNode) {
-        this._selectedNames = this.addChild(this._selectedNames, name);
-    }
-
-    public addSelectedValue(value: TreeNode) {
-        this._selectedValues = this.addChild(this._selectedValues, value);
-    }
-
-    private addChild(nodes: TreeNode[], child: TreeNode): TreeNode[] {
-        const copyNodes: TreeNode[] = _.cloneDeep(nodes);
-        const copyChild: TreeNode = _.cloneDeep(child);
-        if (copyChild.parent) {
-            copyChild.parent = null;
+    public addChild(child: TreeNode, type: SelectedTypes) {
+        let target: TreeNode[];
+        switch (type) {
+            case SelectedTypes.NAMES:
+                target = this._selectedNames;
+                break;
+            case SelectedTypes.VALUES:
+                target = this._selectedValues;
+                break;
+            default:
+                break;
         }
-        copyChild.expanded = true;
-        if (copyNodes.length > 0) {
-            if (copyNodes[0].children) {
-                copyNodes[0].children.push(copyChild);
+        if (!target) {
+            return;
+        }
+        if (child.parent) {
+            child.parent = null;
+        }
+        child.expanded = true;
+        if (target.length > 0) {
+            if (target[0].children) {
+                target[0].children.push(child);
             } else {
-                copyNodes[0].children = [child];
+                target[0].children = [child];
             }
         }
-        return copyNodes;
+    }
+
+    public removeChild(node: TreeNode, type: SelectedTypes) {
+        let target: TreeNode[];
+        switch (type) {
+            case SelectedTypes.NAMES:
+                target = this._selectedNames;
+                break;
+            case SelectedTypes.VALUES:
+                target = this._selectedValues;
+                break;
+            default:
+                break;
+        }
+        if (!target) {
+            return;
+        }
+
+        const idx = target[0].children.findIndex((nd) => nd.label === node.label);
+        if (idx === -1) {
+            return;
+        }
+        target[0].children.splice(idx, 1);
+    }
+
+    public isStringField(field: string) {
+        return field.toLowerCase().includes('char');
+    }
+
+    public isNumberField(field: string) {
+        return field.toLowerCase().includes('int');
+    }
+
+    public isDateField(field: string) {
+        return field.toLowerCase().includes('time') || field.toLowerCase().includes('date');
+    }
+
+    public isStringNode(node: TreeNode): boolean {
+        return this.isStringField(node.data.fieldType);
+    }
+
+    public isNumberNode(node: TreeNode): boolean {
+        return this.isNumberField(node.data.fieldType);
+    }
+
+    public isDateNode(node: TreeNode): boolean {
+        return this.isDateField(node.data.fieldType);
     }
 }

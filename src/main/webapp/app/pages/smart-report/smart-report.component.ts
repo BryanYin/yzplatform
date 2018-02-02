@@ -1,11 +1,11 @@
 import { Component, OnInit, Injector } from '@angular/core';
 import { EntityApiService } from '../../shared/yz-service/entity-api';
-import { YzSchemaTable, YzTableStruct } from '../../shared/interfaces';
+import { YzSchemaTable, YzTableStruct, REPORT_ENTITY_NAMES } from '../../shared/interfaces';
 import { HttpClient } from '@angular/common/http';
 import { ResponseWrapper } from '../../shared';
 
 import { TreeNode, TreeDragDropService } from 'primeng/primeng';
-import { SmartReportService, TableField } from './smart-report.service';
+import { SmartReportService, TableField, SelectedTypes } from './smart-report.service';
 import { YzEchartsService } from '../../shared/yz-echarts/yz-echats.service';
 import { YzToastService, ToastType, ToastPosition, ToastAnimation } from '../../shared/yz-service/yz-toast.service';
 
@@ -28,7 +28,6 @@ export class SmartReportComponent implements OnInit {
     private tableNames: string[] = [];
     private tableFields: Map<string, YzTableStruct[]> = new Map();
 
-    public renew: boolean = false;
     public treeData: TreeNode[] = [];
     public selectNames: TreeNode[];
     public selectValues: TreeNode[];
@@ -39,6 +38,7 @@ export class SmartReportComponent implements OnInit {
         { icon: 'fa-pie-chart', type: ChartTypes.PIE },
         // { icon: 'fa-area-chart', type: ChartTypes.AREA},
     ];
+    public renew: boolean = false;
 
     constructor(
         private injector: Injector,
@@ -77,19 +77,20 @@ export class SmartReportComponent implements OnInit {
         tableFields.forEach((value, key) => {
             if (value.length > 0) {
                 const parent: TreeNode = {
-                    label: key,
+                    label: REPORT_ENTITY_NAMES[key] || key,
                     data: key,
-                    collapsedIcon: 'fa-table',
-                    expandedIcon: 'fa-table',
+                    icon: 'fa-table',
                 };
                 const children: TreeNode[] = [];
 
                 value.forEach((d) => {
+                    const iconChild = this.service.isStringField(d.dataType) ? 'fa-font' :
+                        (this.service.isNumberField(d.dataType) ? 'fa-italic' :
+                            (this.service.isDateField(d.dataType) ? 'fa-clock-o' : 'fa-columns'));
                     children.push({
                         label: d.description || d.columnName,
-                        data: new TableField(key, d.columnName, d.dataType),
-                        collapsedIcon: 'fa-columns',
-                        expandedIcon: 'fa-columns'
+                        data: new TableField(key, d.columnName, d.dataType, d.ordinalPosition),
+                        icon: iconChild,
                     });
                 });
 
@@ -100,14 +101,62 @@ export class SmartReportComponent implements OnInit {
         return ret;
     }
 
-    onDropNames(e): void {
-        this.service.addSelectedName(e.dragNode);
-        this.selectNames = this.service.selectedNames;
+    private mvNodeBack(node: TreeNode) {
+        const treeIdx = this.treeData.findIndex((nd) => {
+            return nd.data === (<TableField>node.data).table;
+        });
+        if (treeIdx === -1) {
+            console.warn('error: cannot find parent for node: ', node);
+            return;
+        }
+        const rootNode = this.treeData[treeIdx];
+        node.parent = rootNode;
+        rootNode.children = [...rootNode.children, node].sort((a, b) => ((<TableField>a.data).position - (<TableField>b.data).position));
     }
 
-    onDropValues(e): void {
-        this.service.addSelectedValue(e.dragNode);
-        this.selectValues = this.service.selectedValues;
+    minusClicked(index: SelectedTypes, node: TreeNode) {
+        this.service.removeChild(node, index);
+        switch (index) {
+            case SelectedTypes.NAMES:
+                this.selectNames = this.service.selectedNames;
+                break;
+            case SelectedTypes.VALUES:
+                this.selectValues = this.service.selectedValues;
+                break;
+            default:
+                break;
+        }
+        this.mvNodeBack(node);
+    }
+
+    isRoot(node: TreeNode) {
+        return node.type === 'root';
+    }
+
+    onDrop(i: number, e): void {
+        const node: TreeNode = e.dragNode;
+        switch (i) {
+            case SelectedTypes.NAMES:
+                this.service.addChild(node, SelectedTypes.NAMES);
+                if (this.service.isNumberNode(node)) {
+                    this.toaster.showToast('类型不符', '只有字符型(A)字段才能放到分类轴', ToastType.TYPE_ERROR, ToastPosition.TOP_CENTER);
+                    this.minusClicked(SelectedTypes.NAMES, node);
+                    break;
+                }
+                this.selectNames = this.service.selectedNames;
+                break;
+            case SelectedTypes.VALUES:
+                this.service.addChild(node, SelectedTypes.VALUES);
+                if (this.service.isStringNode(node)) {
+                    this.toaster.showToast('类型不符', '只有数字型(I)字段才能放到数值轴', ToastType.TYPE_ERROR, ToastPosition.TOP_CENTER);
+                    this.minusClicked(SelectedTypes.VALUES, node);
+                    break;
+                }
+                this.selectValues = this.service.selectedValues;
+                break;
+            default:
+                break;
+        }
     }
 
     btnClicked(btn: any) {
