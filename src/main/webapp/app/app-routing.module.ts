@@ -3,7 +3,6 @@ import { RouterModule, ExtraOptions, Routes } from '@angular/router';
 import { environment } from '../environments/environment';
 import { errorRoute } from './@theme/components/error/error.route';
 import { YzLoginComponent } from './shared/yz-login/login.component';
-import { PageRoutes } from './pages/pages-routing.module';
 
 const defaultPath = environment.showLogin ? 'login' : 'pages';
 
