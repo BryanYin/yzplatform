@@ -36,6 +36,10 @@ export class Page1Component implements OnInit {
             });
     }
 
+    refreshData() {
+        this.ngOnInit();
+    }
+
     showDialogToAdd() {
         this._isAddingNew = true;
         this.dialogGrade = new Grade('', 0, 0, 0, 0, 0, 0, 0, '', '');
