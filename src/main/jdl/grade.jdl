@@ -2,19 +2,19 @@ entity Grade (CDB_GRADE) {
 	/** 公司名称 */
 	name String,
     /** 市场地位*/
-    scdw Integer,
+    scdw Double,
     /** 杠杆比率 */
-	ggbl Integer,
+	ggbl Double,
     /** 利率因素 */
-	llys Integer,
+	llys Double,
     /** 现金流动性 */
-	xjldx Integer,
+	xjldx Double,
     /** 创收能力 */
-	csnl Integer,
+	csnl Double,
     /** 盈利能力 */
-	ylnl Integer,
+	ylnl Double,
     /** 客户评级 */
-	khpj Integer,
+	khpj Double,
     /** 所属国家 */
     country String,
     /** 填报时间 */

@@ -10,37 +10,37 @@
         {
             "fieldName": "scdw",
             "javadoc": "市场地位",
-            "fieldType": "Integer"
+            "fieldType": "Double"
         },
         {
             "fieldName": "ggbl",
             "javadoc": "杠杆比率",
-            "fieldType": "Integer"
+            "fieldType": "Double"
         },
         {
             "fieldName": "llys",
             "javadoc": "利率因素",
-            "fieldType": "Integer"
+            "fieldType": "Double"
         },
         {
             "fieldName": "xjldx",
             "javadoc": "现金流动性",
-            "fieldType": "Integer"
+            "fieldType": "Double"
         },
         {
             "fieldName": "csnl",
             "javadoc": "创收能力",
-            "fieldType": "Integer"
+            "fieldType": "Double"
         },
         {
             "fieldName": "ylnl",
             "javadoc": "盈利能力",
-            "fieldType": "Integer"
+            "fieldType": "Double"
         },
         {
             "fieldName": "khpj",
             "javadoc": "客户评级",
-            "fieldType": "Integer"
+            "fieldType": "Double"
         },
         {
             "fieldName": "country",

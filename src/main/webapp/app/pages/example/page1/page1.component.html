@@ -32,7 +32,7 @@
         <ng-container *ngFor="let item of titleRow2">
             <div class="ui-grid-row">
                 <div class="ui-grid-col-4">
-                    <label [for]="item.field">{{titleRow1[item.index].name}}</label>
+                    <label [for]="item.field">{{item.name}}</label>
                 </div>
                 <div class="ui-grid-col-8">
                     <input pInputText [id]="item.field" [(ngModel)]="dialogGrade[item.field]" />

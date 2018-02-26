@@ -83,7 +83,7 @@ export class Grade extends GeneralEntity {
         { name: '报告时间', index: 8 }
     ];
     public static titleRow2 = [
-        { field: 'scdw', name: '销售收入', index: 0 },
+        { field: 'scdw', name: '销售收入（亿美元）', index: 0 },
         { field: 'ggbl', name: '净借款/EBITDA', index: 1 },
         { field: 'llys', name: '国际市场筹资成本', index: 2 },
         { field: 'xjldx', name: 'EBITDA MARGIN', index: 3 },

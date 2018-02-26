@@ -36,49 +36,49 @@ public class Grade implements Serializable {
      */
     @ApiModelProperty(value = "市场地位")
     @Column(name = "scdw")
-    private Integer scdw;
+    private Double scdw;
 
     /**
      * 杠杆比率
      */
     @ApiModelProperty(value = "杠杆比率")
     @Column(name = "ggbl")
-    private Integer ggbl;
+    private Double ggbl;
 
     /**
      * 利率因素
      */
     @ApiModelProperty(value = "利率因素")
     @Column(name = "llys")
-    private Integer llys;
+    private Double llys;
 
     /**
      * 现金流动性
      */
     @ApiModelProperty(value = "现金流动性")
     @Column(name = "xjldx")
-    private Integer xjldx;
+    private Double xjldx;
 
     /**
      * 创收能力
      */
     @ApiModelProperty(value = "创收能力")
     @Column(name = "csnl")
-    private Integer csnl;
+    private Double csnl;
 
     /**
      * 盈利能力
      */
     @ApiModelProperty(value = "盈利能力")
     @Column(name = "ylnl")
-    private Integer ylnl;
+    private Double ylnl;
 
     /**
      * 客户评级
      */
     @ApiModelProperty(value = "客户评级")
     @Column(name = "khpj")
-    private Integer khpj;
+    private Double khpj;
 
     /**
      * 所属国家
@@ -123,94 +123,94 @@ public class Grade implements Serializable {
         this.name = name;
     }
 
-    public Integer getScdw() {
+    public Double getScdw() {
         return scdw;
     }
 
-    public Grade scdw(Integer scdw) {
+    public Grade scdw(Double scdw) {
         this.scdw = scdw;
         return this;
     }
 
-    public void setScdw(Integer scdw) {
+    public void setScdw(Double scdw) {
         this.scdw = scdw;
     }
 
-    public Integer getGgbl() {
+    public Double getGgbl() {
         return ggbl;
     }
 
-    public Grade ggbl(Integer ggbl) {
+    public Grade ggbl(Double ggbl) {
         this.ggbl = ggbl;
         return this;
     }
 
-    public void setGgbl(Integer ggbl) {
+    public void setGgbl(Double ggbl) {
         this.ggbl = ggbl;
     }
 
-    public Integer getLlys() {
+    public Double getLlys() {
         return llys;
     }
 
-    public Grade llys(Integer llys) {
+    public Grade llys(Double llys) {
         this.llys = llys;
         return this;
     }
 
-    public void setLlys(Integer llys) {
+    public void setLlys(Double llys) {
         this.llys = llys;
     }
 
-    public Integer getXjldx() {
+    public Double getXjldx() {
         return xjldx;
     }
 
-    public Grade xjldx(Integer xjldx) {
+    public Grade xjldx(Double xjldx) {
         this.xjldx = xjldx;
         return this;
     }
 
-    public void setXjldx(Integer xjldx) {
+    public void setXjldx(Double xjldx) {
         this.xjldx = xjldx;
     }
 
-    public Integer getCsnl() {
+    public Double getCsnl() {
         return csnl;
     }
 
-    public Grade csnl(Integer csnl) {
+    public Grade csnl(Double csnl) {
         this.csnl = csnl;
         return this;
     }
 
-    public void setCsnl(Integer csnl) {
+    public void setCsnl(Double csnl) {
         this.csnl = csnl;
     }
 
-    public Integer getYlnl() {
+    public Double getYlnl() {
         return ylnl;
     }
 
-    public Grade ylnl(Integer ylnl) {
+    public Grade ylnl(Double ylnl) {
         this.ylnl = ylnl;
         return this;
     }
 
-    public void setYlnl(Integer ylnl) {
+    public void setYlnl(Double ylnl) {
         this.ylnl = ylnl;
     }
 
-    public Integer getKhpj() {
+    public Double getKhpj() {
         return khpj;
     }
 
-    public Grade khpj(Integer khpj) {
+    public Grade khpj(Double khpj) {
         this.khpj = khpj;
         return this;
     }
 
-    public void setKhpj(Integer khpj) {
+    public void setKhpj(Double khpj) {
         this.khpj = khpj;
     }
 

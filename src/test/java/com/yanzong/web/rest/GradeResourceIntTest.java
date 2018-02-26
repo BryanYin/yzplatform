@@ -47,26 +47,26 @@ public class GradeResourceIntTest {
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_NAME = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_SCDW = 1;
-    private static final Integer UPDATED_SCDW = 2;
+    private static final Double DEFAULT_SCDW = 1D;
+    private static final Double UPDATED_SCDW = 2D;
 
-    private static final Integer DEFAULT_GGBL = 1;
-    private static final Integer UPDATED_GGBL = 2;
+    private static final Double DEFAULT_GGBL = 1D;
+    private static final Double UPDATED_GGBL = 2D;
 
-    private static final Integer DEFAULT_LLYS = 1;
-    private static final Integer UPDATED_LLYS = 2;
+    private static final Double DEFAULT_LLYS = 1D;
+    private static final Double UPDATED_LLYS = 2D;
 
-    private static final Integer DEFAULT_XJLDX = 1;
-    private static final Integer UPDATED_XJLDX = 2;
+    private static final Double DEFAULT_XJLDX = 1D;
+    private static final Double UPDATED_XJLDX = 2D;
 
-    private static final Integer DEFAULT_CSNL = 1;
-    private static final Integer UPDATED_CSNL = 2;
+    private static final Double DEFAULT_CSNL = 1D;
+    private static final Double UPDATED_CSNL = 2D;
 
-    private static final Integer DEFAULT_YLNL = 1;
-    private static final Integer UPDATED_YLNL = 2;
+    private static final Double DEFAULT_YLNL = 1D;
+    private static final Double UPDATED_YLNL = 2D;
 
-    private static final Integer DEFAULT_KHPJ = 1;
-    private static final Integer UPDATED_KHPJ = 2;
+    private static final Double DEFAULT_KHPJ = 1D;
+    private static final Double UPDATED_KHPJ = 2D;
 
     private static final String DEFAULT_COUNTRY = "AAAAAAAAAA";
     private static final String UPDATED_COUNTRY = "BBBBBBBBBB";
@@ -196,13 +196,13 @@ public class GradeResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(grade.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-            .andExpect(jsonPath("$.[*].scdw").value(hasItem(DEFAULT_SCDW)))
-            .andExpect(jsonPath("$.[*].ggbl").value(hasItem(DEFAULT_GGBL)))
-            .andExpect(jsonPath("$.[*].llys").value(hasItem(DEFAULT_LLYS)))
-            .andExpect(jsonPath("$.[*].xjldx").value(hasItem(DEFAULT_XJLDX)))
-            .andExpect(jsonPath("$.[*].csnl").value(hasItem(DEFAULT_CSNL)))
-            .andExpect(jsonPath("$.[*].ylnl").value(hasItem(DEFAULT_YLNL)))
-            .andExpect(jsonPath("$.[*].khpj").value(hasItem(DEFAULT_KHPJ)))
+            .andExpect(jsonPath("$.[*].scdw").value(hasItem(DEFAULT_SCDW.doubleValue())))
+            .andExpect(jsonPath("$.[*].ggbl").value(hasItem(DEFAULT_GGBL.doubleValue())))
+            .andExpect(jsonPath("$.[*].llys").value(hasItem(DEFAULT_LLYS.doubleValue())))
+            .andExpect(jsonPath("$.[*].xjldx").value(hasItem(DEFAULT_XJLDX.doubleValue())))
+            .andExpect(jsonPath("$.[*].csnl").value(hasItem(DEFAULT_CSNL.doubleValue())))
+            .andExpect(jsonPath("$.[*].ylnl").value(hasItem(DEFAULT_YLNL.doubleValue())))
+            .andExpect(jsonPath("$.[*].khpj").value(hasItem(DEFAULT_KHPJ.doubleValue())))
             .andExpect(jsonPath("$.[*].country").value(hasItem(DEFAULT_COUNTRY.toString())))
             .andExpect(jsonPath("$.[*].eventTime").value(hasItem(DEFAULT_EVENT_TIME.toString())))
             .andExpect(jsonPath("$.[*].dbTime").value(hasItem(sameInstant(DEFAULT_DB_TIME))));
@@ -220,13 +220,13 @@ public class GradeResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(grade.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.scdw").value(DEFAULT_SCDW))
-            .andExpect(jsonPath("$.ggbl").value(DEFAULT_GGBL))
-            .andExpect(jsonPath("$.llys").value(DEFAULT_LLYS))
-            .andExpect(jsonPath("$.xjldx").value(DEFAULT_XJLDX))
-            .andExpect(jsonPath("$.csnl").value(DEFAULT_CSNL))
-            .andExpect(jsonPath("$.ylnl").value(DEFAULT_YLNL))
-            .andExpect(jsonPath("$.khpj").value(DEFAULT_KHPJ))
+            .andExpect(jsonPath("$.scdw").value(DEFAULT_SCDW.doubleValue()))
+            .andExpect(jsonPath("$.ggbl").value(DEFAULT_GGBL.doubleValue()))
+            .andExpect(jsonPath("$.llys").value(DEFAULT_LLYS.doubleValue()))
+            .andExpect(jsonPath("$.xjldx").value(DEFAULT_XJLDX.doubleValue()))
+            .andExpect(jsonPath("$.csnl").value(DEFAULT_CSNL.doubleValue()))
+            .andExpect(jsonPath("$.ylnl").value(DEFAULT_YLNL.doubleValue()))
+            .andExpect(jsonPath("$.khpj").value(DEFAULT_KHPJ.doubleValue()))
             .andExpect(jsonPath("$.country").value(DEFAULT_COUNTRY.toString()))
             .andExpect(jsonPath("$.eventTime").value(DEFAULT_EVENT_TIME.toString()))
             .andExpect(jsonPath("$.dbTime").value(sameInstant(DEFAULT_DB_TIME)));
