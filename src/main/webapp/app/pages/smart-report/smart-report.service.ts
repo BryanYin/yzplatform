@@ -194,7 +194,7 @@ export class SmartReportService {
     }
 
     public isNumberField(field: string) {
-        return field.toLowerCase().includes('int');
+        return field.toLowerCase().includes('int') || field.toLowerCase().includes('double') || field.toLowerCase().includes('float');
     }
 
     public isDateField(field: string) {
